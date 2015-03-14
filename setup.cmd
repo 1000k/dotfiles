@@ -1,8 +1,8 @@
 @echo off
 
-set vim_dir="%USERPROFILE%\.vim"
+set home_dir=%USERPROFILE%
 set dotfiles_dir="%USERPROFILE%\dotfiles"
 
-fsutil hardlink create "%vim_dir%\_vimrc" "%dotfiles_dir\.vimrc" 
-fsutil hardlink create "%vim_dir%\_gvimrc" "%dotfiles_dir\.gvimrc"
+mklink "%home_dir%\_vimrc" "%dotfiles_dir%\.vimrc" 
+mklink "%home_dir%\_gvimrc" "%dotfiles_dir%\.gvimrc"
 
