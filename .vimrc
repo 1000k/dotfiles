@@ -1,9 +1,9 @@
-" --------
+" ----------------
 " NeoBudle initialization
 "
 " run at first time: `vim +NeoBundleInstall +qall`
 " see: https://github.com/Shougo/neobundle.vim
-" --------
+" ----------------
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -37,12 +37,15 @@ NeoBundle 'tomtom/tcomment_vim'
 " (to clean extra whitespace, call `:StripWhitespace`)
 NeoBundle 'ntpeters/vim-better-whitespace'
 
-" Add 'end' keyword automatically on Ruby
+" Add 'end' keyword automatically
 NeoBundle 'tpope/vim-endwise'
 
 " Highlight indent
 NeoBundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_no_vim_startup = 1
+
+" Add closing brace automatically
+NeoBundle 'Townk/vim-autoclose'
 
 call neobundle#end()
 
@@ -54,9 +57,12 @@ filetype plugin indent on
 NeoBundleCheck
 
 
-" --------
+" ----------------
 " General
-" --------
+" ----------------
+" enable syntax highlight
+syntax enable
+
 " show line number
 set number
 
@@ -90,6 +96,7 @@ set expandtab
 " enable auto indentation
 set autoindent
 set smartindent
+set cindent
 
 " highlight pair of braces
 set showmatch
@@ -111,4 +118,5 @@ if has("autocmd")
     \   exe "normal! g'\"" |
     \ endif
 endif
+
 
