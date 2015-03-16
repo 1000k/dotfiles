@@ -119,4 +119,13 @@ if has("autocmd")
     \ endif
 endif
 
+" show tab
+set showtabline=2
+
+" reload .vimrc after save
+augroup source-vimrc
+  autocmd!
+  autocmd BufWritePost *vimrc source $MVIMRC | set foldmethod=marker
+  autocmd BufWritePost *gvimrc if has('gui_running') source $MVGVIMRC
+augroup END
 
