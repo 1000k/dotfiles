@@ -1,12 +1,18 @@
 @echo off
 
 set home_dir=%USERPROFILE%
+set vim_dir="%USERPROFILE%\.vim"
+set vimfiles_dir="%USERPROFILE%\vimfiles"
 set dotfiles_dir="%USERPROFILE%\dotfiles"
 
-mklink "%home_dir%\_vimrc" "%dotfiles_dir%\.vimrc" 
-mklink "%home_dir%\_gvimrc" "%dotfiles_dir%\.gvimrc"
+md "%vim_dir%"
+md "%vim_dir%\bundle"
+md "%vimfiles_dir%"
 
-md "%home_dir%\.vim"
-md "%home_dir%\.vim\bundle"
-git clone https://github.com/Shougo/neobundle.vim "%home_dir%\.vim\bundle\neobundle.vim"
+mklink "%vimfiles_dir%\vimrc" "%dotfiles_dir%\.vimrc" 
+mklink "%vimfiles_dir%\gvimrc" "%dotfiles_dir%\.gvimrc"
+mklink /d "%vimfiles_dir%\colors" "%dotfiles_dir%\colors"
+mklink /d "%vimfiles_dir%\indent" "%dotfiles_dir%\indent"
+
+git clone https://github.com/Shougo/neobundle.vim "%vim_dir%\bundle\neobundle.vim"
 

@@ -123,9 +123,8 @@ endif
 set showtabline=2
 
 " reload .vimrc after save
-augroup source-vimrc
+augroup reload_vimrc " {
   autocmd!
-  autocmd BufWritePost *vimrc source $MVIMRC | set foldmethod=marker
-  autocmd BufWritePost *gvimrc if has('gui_running') source $MVGVIMRC
-augroup END
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
 
