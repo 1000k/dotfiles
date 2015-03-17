@@ -69,6 +69,10 @@ set number
 " set paste mode
 set paste
 
+" enable backspace
+set backspace=2
+set backspace=indent,eol,start
+
 " visualize tab, space, line break
 set list
 set listchars=tab:\|-,trail:_,extends:>,precedes:<,nbsp:%
