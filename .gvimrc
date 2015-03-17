@@ -2,10 +2,6 @@
 set backspace=2
 set backspace=indent,eol,start
 
-" Set color scheme
-colorscheme molokai
-let g:molokai_original=1
-
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
 if has('autocmd')

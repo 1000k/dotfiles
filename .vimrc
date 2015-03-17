@@ -128,3 +128,7 @@ augroup reload_vimrc " {
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
+" set colorscheme
+set t_Co=256
+colorscheme molokai
+let g:molokai_original=1

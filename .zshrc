@@ -37,3 +37,11 @@ SPROMPT="%r is correct? [n,y,a,e]: "
 ## Load user .zshrc configuration file
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
+
+## Enable 256 color if supported
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+        export TERM='xterm-256color'
+else
+        export TERM='xterm-color'
+fi
+
