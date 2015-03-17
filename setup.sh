@@ -1,5 +1,5 @@
 #!/bin/sh
-files=(.vimrc .zshrc)
+files=(.vimrc .zshrc .zshenv .tmux.conf)
 
 for item in ${files[@]}; do
   ln -sf ~/dotfiles/${item} ~/${item}

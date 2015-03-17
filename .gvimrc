@@ -1,7 +1,3 @@
-" Enable backspace
-set backspace=2
-set backspace=indent,eol,start
-
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
 if has('autocmd')
