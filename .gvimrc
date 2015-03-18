@@ -8,3 +8,4 @@ endif
 set iminsert=0
 set imsearch=-1
 
+" Enable clipboard sync on Windows
