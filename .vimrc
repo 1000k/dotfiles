@@ -27,7 +27,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
-" Finder
+" File finder
+NeoBundleFetch 'Shougo/unite.vim'
+
+" Enhance unite.vim to access to recent opened files
+NeoBundleFetch 'Shougo/neomru.vim'
+
+" File tree
 NeoBundle 'scrooloose/nerdtree'
 
 " Toggle On/Off of multiple line comments
