@@ -1,10 +1,6 @@
 " **NOTE**
 " If using VIM Kaoriya version, remove 'vimrc' and 'gvimrc' at first
 
-if &guioptions =~# 'M'
-  let &guioptions = substitute(&guioptions, '[mT]', '', 'g')
-endif
-
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
 if has('autocmd')
@@ -21,4 +17,7 @@ set guioptions-=T
 
 " Enable clipboard sync on Windows
 set clipboard=unnamed
+if has("win32")
+    vnoremap <C-c> "*y
+endif
 
