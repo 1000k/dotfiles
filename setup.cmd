@@ -9,8 +9,9 @@ md "%vim_dir%"
 md "%vim_dir%\bundle"
 md "%vimfiles_dir%"
 
-mklink "%vimfiles_dir%\vimrc" "%dotfiles_dir%\.vimrc" 
-mklink "%vimfiles_dir%\gvimrc" "%dotfiles_dir%\.gvimrc"
+mklink "%home_dir%\_vimrc" "%dotfiles_dir%\.vimrc"
+mklink "%home_dir%\_gvimrc" "%dotfiles_dir%\.gvimrc"
+mklink /d "%vim_dir%\conf.d" "%dotfiles_dir%\conf.d"
 mklink /d "%vimfiles_dir%\colors" "%dotfiles_dir%\colors"
 mklink /d "%vimfiles_dir%\indent" "%dotfiles_dir%\indent"
 
