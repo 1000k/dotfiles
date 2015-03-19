@@ -125,18 +125,18 @@ set incsearch
 set smartcase
 
 " customize status line
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set statusline=[%n]\        " buffer number
 set statusline+=%f\         " relative file path
-set statusline+=%m\         " fixable flag ([+]|[-])
+set statusline+=%m\         " modifiable flag ([+]|[-])
 set statusline+=%r          " read only flag
 set statusline+=%<          " separator
 set statusline+=%=          " align right
-set statusline+=%{'['.(&fenc!=''?&fenc:'?').','.&ff.']'}\   " format & character code
+set statusline+=%{(&fenc!=''?&fenc:&enc)}\  " character code
+set statusline+=%{&ff}\     " character code
 set statusline+=%y\         " file type
-set statusline+=%4l/%L      " current row / total row
-set statusline+=,%3c\       " current column
-set statusline+=%3p%%\      " cursor position (%)
+set statusline+=%l/%L       " current line number / total line number
+set statusline+=:%c\        " column number
+set statusline+=%P\         " cursor position (%)
 set laststatus=2
 
 " show tab always
