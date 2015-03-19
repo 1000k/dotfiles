@@ -33,6 +33,9 @@ NeoBundle 'Shougo/unite.vim'
 " Enhance unite.vim to access to recent opened files
 NeoBundle 'Shougo/neomru.vim'
 
+" Project manager
+NeoBundle 'synboo/project.vim'
+
 " File tree
 NeoBundle 'scrooloose/nerdtree'
 
