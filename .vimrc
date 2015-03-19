@@ -38,6 +38,10 @@ NeoBundle 'synboo/project.vim'
 
 " File tree
 NeoBundle 'scrooloose/nerdtree'
+" sync pwd with NERDTree
+set autochdir
+let NERDTreeChDirMode=2
+nnoremap <leader>n :NERDTree .<CR>
 
 " Toggle On/Off of multiple line comments
 NeoBundle 'tomtom/tcomment_vim'
