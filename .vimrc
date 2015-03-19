@@ -28,10 +28,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 
 " File finder
-NeoBundleFetch 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite.vim'
 
 " Enhance unite.vim to access to recent opened files
-NeoBundleFetch 'Shougo/neomru.vim'
+NeoBundle 'Shougo/neomru.vim'
 
 " File tree
 NeoBundle 'scrooloose/nerdtree'
