@@ -34,7 +34,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 
 " Project manager
-NeoBundle 'synboo/project.vim'
+NeoBundle 'vim-scripts/project.vim'
 
 " File tree
 NeoBundle 'scrooloose/nerdtree'
