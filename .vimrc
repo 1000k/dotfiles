@@ -126,7 +126,7 @@ set statusline+=%m\         " fixable flag ([+]|[-])
 set statusline+=%r          " read only flag
 set statusline+=%<          " separator
 set statusline+=%=          " align right
-set statusline+=%{'['.(&fenc!=''?&fenc:'?').'-'.&ff.']'}\   " format & character code
+set statusline+=%{'['.(&fenc!=''?&fenc:'?').','.&ff.']'}\   " format & character code
 set statusline+=%y\         " file type
 set statusline+=%4l/%L      " current row / total row
 set statusline+=,%3c\       " current column
