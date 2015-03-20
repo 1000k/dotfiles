@@ -7,7 +7,7 @@ Setup
 ### Linux
 
 ```
-curl http://bit.ly/1000k_dotfiles | bash
+curl -L http://bit.ly/1000k_dotfiles | bash
 ```
 
 ### Windows
