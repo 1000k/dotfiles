@@ -44,6 +44,9 @@ NeoBundle 'tpope/vim-endwise'  " Add 'end' keyword automatically
 NeoBundle 'nathanaelkane/vim-indent-guides'  " Highlight indent
 let g:indent_guides_enable_no_vim_startup = 1
 NeoBundle 'Townk/vim-autoclose'  " Add closing brace automatically
+NeoBundle 'tyru/caw.vim'  " support comment out
+nmap <Leader>c <Plug>(caw:i:toggle)
+vmap <Leader>c <Plug>(caw:i:toggle)
 
 call neobundle#end()
 
@@ -212,6 +215,7 @@ set fileformats=unix,dos,mac
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
+
 
 " ----------------
 " Custom key mappings
