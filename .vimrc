@@ -38,15 +38,11 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'Shougo/vimfiler' " Filer
 NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files
-NeoBundle 'tomtom/tcomment_vim'  " Toggle On/Off of multiple line comments
 NeoBundle 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespaces
-NeoBundle 'tpope/vim-endwise'  " Add 'end' keyword automatically
-NeoBundle 'nathanaelkane/vim-indent-guides'  " Highlight indent
-let g:indent_guides_enable_no_vim_startup = 1
-NeoBundle 'Townk/vim-autoclose'  " Add closing brace automatically
 NeoBundle 'tyru/caw.vim'  " support comment out
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
+
 
 call neobundle#end()
 
@@ -226,6 +222,13 @@ nnoremap th :<C-u>tabprevious<CR>
 nnoremap tl :<C-u>tabnext<CR>
 nnoremap t0 :<C-u>tabfirst<CR>
 nnoremap t$ :<C-u>tablast<CR>
+
+" stay inside bracket
+imap () ()<Left>
+imap [] []<Left>
+imap {} {}<Left>
+imap "" ""<Left>
+imap '' ''<Left>
 
 
 " ----------------
