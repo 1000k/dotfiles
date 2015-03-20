@@ -28,6 +28,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 
 NeoBundle 'Shougo/unite.vim'  " File finder
+NeoBundle 'Shougo/vimproc', { 
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ } 
 NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files
 NeoBundle 'scrooloose/nerdtree' " File tree
 set autochdir  " sync pwd with NERDTree
