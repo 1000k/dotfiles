@@ -27,38 +27,18 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
-" File finder
-NeoBundle 'Shougo/unite.vim'
-
-" Enhance unite.vim to access to recent opened files
-NeoBundle 'Shougo/neomru.vim'
-
-" Project manager
-NeoBundle 'vim-scripts/project.vim'
-
-" File tree
-NeoBundle 'scrooloose/nerdtree'
-" sync pwd with NERDTree
-set autochdir
+NeoBundle 'Shougo/unite.vim'  " File finder
+NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files
+NeoBundle 'scrooloose/nerdtree' " File tree
+set autochdir  " sync pwd with NERDTree
 let NERDTreeChDirMode=2
 nnoremap <leader>n :NERDTree .<CR>
-
-" Toggle On/Off of multiple line comments
-NeoBundle 'tomtom/tcomment_vim'
-
-" Highlight trailing whitespaces
-" (to clean extra whitespace, call `:StripWhitespace`)
-NeoBundle 'ntpeters/vim-better-whitespace'
-
-" Add 'end' keyword automatically
-NeoBundle 'tpope/vim-endwise'
-
-" Highlight indent
-NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'tomtom/tcomment_vim'  " Toggle On/Off of multiple line comments
+NeoBundle 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespaces
+NeoBundle 'tpope/vim-endwise'  " Add 'end' keyword automatically
+NeoBundle 'nathanaelkane/vim-indent-guides'  " Highlight indent
 let g:indent_guides_enable_no_vim_startup = 1
-
-" Add closing brace automatically
-NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'Townk/vim-autoclose'  " Add closing brace automatically
 
 call neobundle#end()
 
