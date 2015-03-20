@@ -30,18 +30,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'  " File finder
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
 \     'cygwin' : 'make -f make_cygwin.mak',
 \     'mac' : 'make -f make_mac.mak',
 \     'linux' : 'make',
 \     'unix' : 'gmake',
 \    },
 \ }
+NeoBundle 'Shougo/vimfiler' " Filer
 NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files
-NeoBundle 'scrooloose/nerdtree' " File tree
-set autochdir  " sync pwd with NERDTree
-let NERDTreeChDirMode=2
-nnoremap <leader>n :NERDTree .<CR>
 NeoBundle 'tomtom/tcomment_vim'  " Toggle On/Off of multiple line comments
 NeoBundle 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespaces
 NeoBundle 'tpope/vim-endwise'  " Add 'end' keyword automatically
