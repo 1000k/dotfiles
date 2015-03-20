@@ -18,6 +18,7 @@ set guioptions-=T
 " Enable clipboard sync on Windows
 set clipboard=unnamed
 if has("win32")
-    vnoremap <C-c> "*y
+  vnoremap <C-c> "*y
+  map <S-Insert> "+gP
 endif
 
