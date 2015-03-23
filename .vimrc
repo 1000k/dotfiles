@@ -145,6 +145,9 @@ let g:molokai_original=1
 " set default character encoding
 set encoding=utf-8
 
+" automatically wrap left and right
+set whichwrap+=<,>,h,l,[,]
+
 " Recover last cursor position
 if has("autocmd")
   autocmd BufReadPost *
