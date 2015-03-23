@@ -265,6 +265,9 @@ command! ToUtf8 set fileencoding=utf-8
 command! ToEUC set fileencoding=euc-jp
 command! ToSjis set fileencoding=sjis
 
+" change linebreak character
+command! ToUnix set ff=unix
+
 
 " ----------------
 " Load conf.d
