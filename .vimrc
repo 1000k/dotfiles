@@ -230,6 +230,9 @@ imap {} {}<Left>
 imap "" ""<Left>
 imap '' ''<Left>
 
+" fix vim regex dialect
+nmap / /\v
+
 
 " ----------------
 " Custom commands
