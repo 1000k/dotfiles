@@ -70,8 +70,9 @@ set shellslash
 " show line number
 set number
 
-" set paste mode
-set paste
+"" set paste mode
+"" *This option intercepts any other commands (like <S-Insert> as paste)*
+"set paste
 
 " enable backspace
 set backspace=2
@@ -235,6 +236,25 @@ imap '' ''<Left>
 
 " fix vim regex dialect
 nmap / /\v
+
+" CTRL-V and SHIFT-Insert are Paste
+map <C-V>		"+gP
+map <S-Insert>		"+gP
+
+cmap <C-V>		<C-R>+
+cmap <S-Insert>		<C-R>+
+
+" Pasting blockwise and linewise selections is not possible in Insert and
+" Visual mode without the +virtualedit feature.  They are pasted as if they
+" were characterwise instead.
+" Uses the paste.vim autoload script.
+" Use CTRL-G u to have CTRL-Z only undo the paste.
+
+exe 'inoremap <script> <C-V> <C-G>u' . paste#paste_cmd['i']
+exe 'vnoremap <script> <C-V> ' . paste#paste_cmd['v']
+
+imap <S-Insert>		<C-V>
+vmap <S-Insert>		<C-V>
 
 
 " ----------------
