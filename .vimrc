@@ -141,6 +141,9 @@ set t_Co=256
 colorscheme molokai
 let g:molokai_original=1
 
+" set default character encoding
+set encoding=utf-8
+
 " Recover last cursor position
 if has("autocmd")
   autocmd BufReadPost *
