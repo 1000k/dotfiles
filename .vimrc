@@ -42,7 +42,12 @@ NeoBundle 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespaces
 NeoBundle 'tyru/caw.vim'  " support comment out
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
-
+NeoBundle "nathanaelkane/vim-indent-guides" " Indent guide
+let s:hooks = neobundle#get_hooks("vim-indent-guides")
+function! s:hooks.on_source(bundle)
+  let g:indent_guides_guide_size = 1
+  IndentGuidesEnable
+endfunction
 
 call neobundle#end()
 
