@@ -243,8 +243,8 @@ nmap / /\v
 " SHIFT-Insert are Paste
 map <S-Insert>		"+gP
 cmap <S-Insert>		"+gP+
-imap <S-Insert>		"+gP
-vmap <S-Insert>		"+gP
+imap <S-Insert>		<Esc>"+gP
+vmap <S-Insert>		<Esc>"+gP
 
 
 " ----------------
