@@ -21,10 +21,8 @@ endif
 set guioptions-=m
 set guioptions-=T
 
-" disable system GUI tab
-set guioptions-=menu
-set guioptions+=menu
-set guioptions-=menu
+" use text base tabpage in gVim
+set guioptions-=e
 
 " Enable clipboard sync on Windows
 set clipboard=unnamed
