@@ -70,7 +70,10 @@ set number " show line number
 set ts=2 sw=2 sts=4 " set tab width
 set expandtab " Soft indent (use space not tab)
 set showmatch " highlight pair of braces
+set matchtime=1 " hightlight braces just a second
+set matchpairs& matchpairs+=<:> " add pair of braces
 set incsearch " enable incremental search
+set hlsearch " highlight matched text
 set smartcase " ignore cases on search
 set showtabline=2 " show tab always
 set cursorline " show cursorline
@@ -82,11 +85,16 @@ set autoindent
 set smartindent
 set cindent
 
+" disable legacy backup functions (useless)
+set nowritebackup
+set nobackup
+set noswapfile
+
 "" set paste mode
 "" *This option intercepts any other commands (like <S-Insert> as paste)*
 "set paste
 
-" enable backspace
+" enable backspace to delete any special characters
 set backspace=2
 set backspace=indent,eol,start
 
