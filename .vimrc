@@ -38,16 +38,11 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'Shougo/vimfiler' " Filer
 NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files
-neobundle 'ntpeters/vim-better-whitespace'  " highlight trailing whitespaces
-neobundle 'tyru/caw.vim'  " support comment out
+NeoBundle 'ntpeters/vim-better-whitespace'  " highlight trailing whitespaces
+NeoBundle 'tyru/caw.vim'  " support comment out
 nmap <leader>c <plug>(caw:i:toggle)
 vmap <leader>c <plug>(caw:i:toggle)
 NeoBundle 'nathanaelkane/vim-indent-guides' " Indent guide
-let s:hooks = neobundle#get_hooks("vim-indent-guides")
-function! s:hooks.on_source(bundle)
-  let g:indent_guides_guide_size = 1
-  IndentGuidesEnable
-endfunction
 NeoBundle 'tpope/vim-surround' " the plugin provied mappings to easily modify such surroundings in pairs
 NeoBundle 'vim-scripts/Align'  " text formater
 NeoBundle 'LeafCage/yankround.vim' " advanced YankRing
