@@ -22,3 +22,8 @@ if has("win32")
   map <S-Insert> "+gP
 endif
 
+" disable system GUI tab
+set guioptions-=menu
+set guioptions+=menu
+set guioptions-=menu
+
