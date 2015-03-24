@@ -37,7 +37,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'Shougo/vimfiler' " Filer
-NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files
+NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files (`:Unite file_mru`)
+NeoBundle 'ujihisa/unite-colorscheme' " Preview color scheme (`:Unite colorscheme -auto-preview`)
 NeoBundle 'ntpeters/vim-better-whitespace'  " highlight trailing whitespaces
 NeoBundle 'tyru/caw.vim'  " support comment out
 nmap <leader>c <plug>(caw:i:toggle)
