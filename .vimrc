@@ -79,6 +79,7 @@ set showtabline=2 " show tab always
 set cursorline " show cursorline
 set encoding=utf-8 " set default character encoding
 set whichwrap+=<,>,h,l,[,] " automatically wrap left and right
+set colorcolumn=80 " show line ruler
 
 " enable auto indentation
 set autoindent
@@ -120,7 +121,7 @@ let g:molokai_original=1
 
 " visualize tab, space, line break
 set list
-set listchars=tab:\|-,trail:_,extends:>,precedes:<,nbsp:%
+set listchars=tab:»-,trail:_,extends:»,precedes:«,nbsp:%,eol:↲
 
 " highlight zenkaku space
 function! ZenkakuSpace()
