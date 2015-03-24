@@ -58,17 +58,24 @@ NeoBundleCheck
 " General
 " ----------------
 
-" enable syntax highlight
-syntax enable
+syntax enable " enable syntax highlight
+set wildmenu " file name completion
+set shellslash " set directory separator '/' instead of '\'
+set number " show line number
+set ts=2 sw=2 sts=4 " set tab width
+set expandtab " Soft indent (use space not tab)
+set showmatch " highlight pair of braces
+set incsearch " enable incremental search
+set smartcase " ignore cases on search
+set showtabline=2 " show tab always
+set cursorline " show cursorline
+set encoding=utf-8 " set default character encoding
+set whichwrap+=<,>,h,l,[,] " automatically wrap left and right
 
-" file name completion
-set wildmenu
-
-" set directory separator '/' instead of '\'
-set shellslash
-
-" show line number
-set number
+" enable auto indentation
+set autoindent
+set smartindent
+set cindent
 
 "" set paste mode
 "" *This option intercepts any other commands (like <S-Insert> as paste)*
@@ -77,6 +84,26 @@ set number
 " enable backspace
 set backspace=2
 set backspace=indent,eol,start
+
+" customize status line
+set statusline=[%n]\        " buffer number
+set statusline+=%f\         " relative file path
+set statusline+=%m\         " modifiable flag ([+]|[-])
+set statusline+=%r          " read only flag
+set statusline+=%<          " separator
+set statusline+=%=          " align right
+set statusline+=%{(&fenc!=''?&fenc:&enc)}\  " character code
+set statusline+=%{&ff}\     " character code
+set statusline+=%y\         " file type
+set statusline+=%l/%L       " current line number / total line number
+set statusline+=:%c\        " column number
+set statusline+=%P\         " cursor position (%)
+set laststatus=2
+
+" set colorscheme
+set t_Co=256
+colorscheme molokai
+let g:molokai_original=1
 
 " visualize tab, space, line break
 set list
@@ -95,58 +122,6 @@ if has('syntax')
   augroup END
   call ZenkakuSpace()
 endif
-
-" set tab width
-set ts=2 sw=2 sts=4
-
-" Soft indent (use space not tab)
-set expandtab
-
-" enable auto indentation
-set autoindent
-set smartindent
-set cindent
-
-" highlight pair of braces
-set showmatch
-
-" enable incremental search
-set incsearch
-
-" ignore cases on search
-set smartcase
-
-" customize status line
-set statusline=[%n]\        " buffer number
-set statusline+=%f\         " relative file path
-set statusline+=%m\         " modifiable flag ([+]|[-])
-set statusline+=%r          " read only flag
-set statusline+=%<          " separator
-set statusline+=%=          " align right
-set statusline+=%{(&fenc!=''?&fenc:&enc)}\  " character code
-set statusline+=%{&ff}\     " character code
-set statusline+=%y\         " file type
-set statusline+=%l/%L       " current line number / total line number
-set statusline+=:%c\        " column number
-set statusline+=%P\         " cursor position (%)
-set laststatus=2
-
-" show tab always
-set showtabline=2
-
-" show cursor
-set cursorline
-
-" set colorscheme
-set t_Co=256
-colorscheme molokai
-let g:molokai_original=1
-
-" set default character encoding
-set encoding=utf-8
-
-" automatically wrap left and right
-set whichwrap+=<,>,h,l,[,]
 
 " Recover last cursor position
 if has("autocmd")
