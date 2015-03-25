@@ -225,6 +225,9 @@ endif
 " ----------------
 " Custom key mappings
 " ----------------
+" leader key
+let mapleader = ","
+
 " tab operation
 nnoremap tn :<C-u>tabnew<CR>
 nnoremap th :<C-u>tabprevious<CR>
