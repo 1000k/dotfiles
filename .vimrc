@@ -57,6 +57,9 @@ nmap gP <Plug>(yankround-gP)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 NeoBundle 'itchyny/lightline.vim' " improve statusline
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ }
 
 
 call neobundle#end()
@@ -142,7 +145,7 @@ if has('syntax')
   augroup ZenkakuSpace
     autocmd!
     autocmd ColorScheme * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '縲')
+    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
   augroup END
   call ZenkakuSpace()
 endif
