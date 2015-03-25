@@ -307,6 +307,13 @@ nnoremap g# g#zz
 
 
 " ----------------
+" Overload
+" ----------------
+" always use `:lcd` to keep pwd in the each tab
+au TabEnter * if exists("t:wd") | exe "cd" t:wd | endif
+
+
+" ----------------
 " Custom commands
 " ----------------
 " change file encodings
