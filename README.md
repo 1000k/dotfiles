@@ -1,6 +1,13 @@
 1000k dotfiles
 ==============
 
+Required
+--------
+- git
+- chef-apply
+  - `curl -L https://www.chef.io/chef/install.sh | sudo bash`
+
+
 Setup
 -----
 
@@ -8,6 +15,7 @@ Setup
 
 ```
 curl -L http://bit.ly/1000k_dotfiles | bash
+sudo chef-apply chef_apply.rb
 ```
 
 ### Windows
