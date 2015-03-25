@@ -60,6 +60,7 @@ NeoBundle 'itchyny/lightline.vim' " improve statusline
 let g:lightline = {
   \ 'colorscheme': 'wombat',
   \ }
+NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime Text
 
 
 call neobundle#end()
@@ -134,7 +135,7 @@ let g:molokai_original=1
 
 " visualize tab, space, line break
 set list
-set listchars=tab:»-,trail:_,extends:»,precedes:«,nbsp:%,eol:↲
+set listchars=tab:▸\ ,trail:_,extends:»,precedes:«,nbsp:%,eol:↲
 
 " highlight zenkaku space
 function! ZenkakuSpace()
