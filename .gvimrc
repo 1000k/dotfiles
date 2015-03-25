@@ -13,13 +13,15 @@ set imsearch=-1
 
 " IME の on/off に合わせてカーソルの色を変える
 if has('multi_byte_ime')
-  hi Cursor guifg=bg guibg=Green gui=NONE
-  hi CursorIM guifg=NONE guibg=Red gui=NONE
+  hi Cursor guifg=bg guibg=White gui=NONE
+  hi CursorIM guifg=NONE guibg=Cyan gui=NONE
 endif
 
-" Hide menu bar and toolbar
+" Hide menu bar, toolbar and scroll bar
 set guioptions-=m
 set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 " use text base tabpage in gVim
 set guioptions-=e
@@ -28,6 +30,5 @@ set guioptions-=e
 set clipboard=unnamed
 if has("win32")
   vnoremap <C-c> "*y
-  map <S-Insert> "+gP
 endif
 
