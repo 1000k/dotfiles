@@ -60,7 +60,7 @@ NeoBundle 'itchyny/lightline.vim' " improve statusline
 let g:lightline = {
   \ 'colorscheme': 'wombat',
   \ }
-NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime Text
+NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
 
 
 call neobundle#end()
