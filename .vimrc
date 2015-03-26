@@ -37,30 +37,21 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'Shougo/vimfiler' " Filer
+let g:unite_enable_start_insert = 1 " launch in insert mode
 NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files (`:Unite file_mru`)
 NeoBundle 'ujihisa/unite-colorscheme' " Preview color scheme (`:Unite colorscheme -auto-preview`)
 NeoBundle 'ntpeters/vim-better-whitespace'  " highlight trailing whitespaces
-NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
 NeoBundle 'tyru/caw.vim'  " support comment out
-nmap <leader>c <plug>(caw:i:toggle)
-vmap <leader>c <plug>(caw:i:toggle)
 NeoBundle 'nathanaelkane/vim-indent-guides' " Indent guide
 NeoBundle 'tpope/vim-surround' " the plugin provied mappings to easily modify such surroundings in pairs
 NeoBundle 'vim-scripts/Align'  " text formater
 NeoBundle 'LeafCage/yankround.vim' " advanced YankRing
-nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
 NeoBundle 'itchyny/lightline.vim' " improve statusline
 let g:lightline = {
   \ 'colorscheme': 'wombat',
   \ }
 NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
+NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
 
 
 call neobundle#end()
@@ -248,7 +239,7 @@ nmap / /\v
 
 " SHIFT-Insert are Paste
 map <S-Insert>		"+gP
-cmap <S-Insert>		"+gP+
+"cmap <S-Insert>		"+gP+
 imap <S-Insert>		<Esc>"+gP
 vmap <S-Insert>		<Esc>"+gP
 
@@ -266,10 +257,24 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+" plugin: Unite
+nnoremap <leader>ub :Unite buffer<CR>
+nnoremap <leader>uf :Unite file_rec<CR>
+nnoremap <leader>um :Unite file_mru<CR>
 
-" ----------------
-" Overload
-" ----------------
+" plugin: caw
+nmap <leader>c <plug>(caw:i:toggle)
+vmap <leader>c <plug>(caw:i:toggle)
+
+" plugin: yankround
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
 
 
 " ----------------
