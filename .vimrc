@@ -52,6 +52,16 @@ let g:lightline = {
   \ }
 NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
 NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
+NeoBundle 'osyo-manga/shabadou.vim' " QuickRun snippets
+NeoBundle 'osyo-manga/vim-watchdogs' " check syntax
+if !exists("g:quickrun_config")
+  let g:quickrun_config = {}
+endif
+let g:quickrun_config = {
+\  "watchdogs_checker/_" : {
+\  },
+\}
+NeoBundle 'jceb/vim-hier' " highlight error line
 
 
 call neobundle#end()
@@ -63,6 +73,7 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
+call watchdogs#setup(g:quickrun_config)
 
 " ----------------
 " General
