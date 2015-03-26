@@ -61,7 +61,7 @@ let g:quickrun_config = {
 \  "watchdogs_checker/_" : {
 \  },
 \}
-NeoBundle 'jceb/vim-hier' " highlight error line
+NeoBundle 'cohama/vim-hier' " highlight error line
 
 
 call neobundle#end()
@@ -249,10 +249,10 @@ imap '' ''<Left>
 nmap / /\v
 
 " SHIFT-Insert are Paste
-map <S-Insert>		"+gP
-"cmap <S-Insert>		"+gP+
-imap <S-Insert>		<Esc>"+gP
-vmap <S-Insert>		<Esc>"+gP
+map <S-Insert>	"+gP
+"cmap <S-Insert>	"+gP+
+imap <S-Insert>	<C-o>p
+vmap <S-Insert>	"+gP
 
 " ESCを二回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
