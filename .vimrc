@@ -90,6 +90,7 @@ set matchtime=1 " hightlight braces just a second
 set matchpairs& matchpairs+=<:> " add pair of braces
 set incsearch " enable incremental search
 set hlsearch " highlight matched text
+set ignorecase " ignore cases on search
 set smartcase " ignore cases on search
 set showtabline=2 " show tab always
 set cursorline " show cursorline
@@ -267,6 +268,9 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
+
+" select all
+map <C-a> <Esc>ggVG
 
 " plugin: Unite
 nnoremap <leader>ub :Unite buffer<CR>
