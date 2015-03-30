@@ -39,6 +39,31 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/vimfiler' " Filer
 let g:unite_enable_start_insert = 1 " launch in insert mode
 NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files (`:Unite file_mru`)
+if has('lua')
+  NeoBundle 'Shougo/neocomplete.vim' " keyword completion
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_smart_case = 1
+
+  " Plugin key-mappings.
+  inoremap <expr><C-g>     neocomplete#undo_completion()
+  inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
+  " <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y>  neocomplete#close_popup()
+  inoremap <expr><C-e>  neocomplete#cancel_popup()
+end
 NeoBundle 'ujihisa/unite-colorscheme' " Preview color scheme (`:Unite colorscheme -auto-preview`)
 NeoBundle 'ntpeters/vim-better-whitespace'  " highlight trailing whitespaces
 NeoBundle 'tyru/caw.vim'  " support comment out
