@@ -42,6 +42,7 @@ NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened fil
 NeoBundle 'ujihisa/unite-colorscheme' " Preview color scheme (`:Unite colorscheme -auto-preview`)
 NeoBundle 'ntpeters/vim-better-whitespace'  " highlight trailing whitespaces
 NeoBundle 'tyru/caw.vim'  " support comment out
+NeoBundle 'tpope/vim-unimpaired'  " pairs of handy bracket mappings
 NeoBundle 'nathanaelkane/vim-indent-guides' " Indent guide
 NeoBundle 'tpope/vim-surround' " the plugin provied mappings to easily modify such surroundings in pairs
 NeoBundle 'vim-scripts/Align'  " text formater
