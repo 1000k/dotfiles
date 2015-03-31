@@ -287,6 +287,9 @@ noremap <Space>h  ^
 noremap <Space>l  $
 nnoremap <Space>/  *
 
+" open .vimrc
+nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
+
 " turn off highlight by double <Esc>
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
@@ -349,13 +352,4 @@ command! ToUnix set ff=unix
 " ----------------
 set runtimepath+=$HOME/.vim/
 runtime! conf.d/*.vim
-
-
-" ----------------
-" Reload .vimrc after save
-" ----------------
-augroup reload_vimrc " {
-  autocmd!
-  autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
 
