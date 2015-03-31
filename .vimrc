@@ -300,9 +300,11 @@ nnoremap g# g#zz
 map <C-a> <Esc>ggVG
 
 " plugin: Unite
-nnoremap <leader>ub :Unite buffer<CR>
-nnoremap <leader>uf :Unite file_rec<CR>
-nnoremap <leader>um :Unite file_mru<CR>
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
+nnoremap <silent> [unite]b :Unite buffer<CR>
+nnoremap <silent> [unite]f :Unite file_rec<CR>
+nnoremap <silent> [unite]m :Unite file_mru<CR>
 
 " plugin: caw
 nmap <leader>c <plug>(caw:i:toggle)
