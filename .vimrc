@@ -282,13 +282,18 @@ map <S-Insert>	"+gP
 imap <S-Insert>	<C-o>p
 vmap <S-Insert>	"+gP
 
-" ESCを二回押すことでハイライトを消す
+" bind frequently used keys to useful position
+noremap <Space>h  ^
+noremap <Space>l  $
+nnoremap <Space>/  *
+
+" turn off highlight by double <Esc>
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-" カーソル下の単語を * で検索
+" search word under cursor by '*'
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
 
-" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+" redraw line to center of a cursor after search
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -312,7 +317,7 @@ nnoremap <silent> [unite]b :Unite buffer<CR>
 nnoremap <silent> [unite]f :Unite file_rec<CR>
 nnoremap <silent> [unite]m :Unite file_mru<CR>
 
-" plugin: caw
+" plugin: caw (toggle comment out on/off)
 nmap <leader>c <plug>(caw:i:toggle)
 vmap <leader>c <plug>(caw:i:toggle)
 
