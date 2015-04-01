@@ -32,3 +32,9 @@ if has("win32")
   vnoremap <C-c> "*y
 endif
 
+" set font
+if has("win32")
+  set guifont=MeiryoKe_Gothic:h12
+  set guifontwide=MeiryoKe_Gothic:h12
+endif
+
