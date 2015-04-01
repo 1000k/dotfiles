@@ -113,7 +113,7 @@ set number " show line number
 set ts=2 sw=2 sts=4 " set tab width
 set expandtab " Soft indent (use space not tab)
 set showmatch " highlight pair of braces
-set matchtime=1 " hightlight braces just a second
+"set matchtime=1 " hightlight braces just a second
 set matchpairs& matchpairs+=<:> " add pair of braces
 set incsearch " enable incremental search
 set hlsearch " highlight matched text
@@ -161,8 +161,8 @@ set laststatus=2
 
 " set colorscheme
 set t_Co=256
+let g:molokai_original=0
 colorscheme molokai
-let g:molokai_original=1
 
 " visualize tab, space, line break
 set list
@@ -372,5 +372,4 @@ command! ToUnix set ff=unix
 " ----------------
 set runtimepath+=$HOME/.vim/
 runtime! conf.d/*.vim
-
 

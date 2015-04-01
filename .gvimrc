@@ -34,7 +34,7 @@ endif
 
 " set font
 if has("win32")
-  set guifont=MeiryoKe_Gothic:h12
-  set guifontwide=MeiryoKe_Gothic:h12
+  set guifont=MeiryoKe_Gothic:h13
+  set guifontwide=MeiryoKe_Gothic:h13
 endif
 
