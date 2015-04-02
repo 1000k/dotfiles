@@ -101,7 +101,17 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
+
+" ----------------
+" NeoBundle related customization
+" ----------------
+" setup Watchdog
 call watchdogs#setup(g:quickrun_config)
+
+augroup startup
+  autocmd!
+  autocmd VimEnter * nested :Unite file_mru
+augroup END
 
 " ----------------
 " General
@@ -164,6 +174,7 @@ set laststatus=2
 " set colorscheme
 set t_Co=256
 let g:molokai_original=0
+let g:rehash256=1 
 colorscheme molokai
 
 " visualize tab, space, line break
@@ -191,7 +202,6 @@ if has("autocmd")
     \   exe "normal! g'\"" |
     \ endif
 endif
-
 
 
 " ----------------
