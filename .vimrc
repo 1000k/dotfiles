@@ -74,8 +74,7 @@ NeoBundle 'vim-scripts/Align'  " text formater
 NeoBundle 'LeafCage/yankround.vim' " advanced YankRing
 NeoBundle 'itchyny/lightline.vim' " improve statusline
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
-  \ }
+\ }
 NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
 NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
 NeoBundle 'osyo-manga/shabadou.vim' " QuickRun snippets
