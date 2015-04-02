@@ -89,7 +89,7 @@ let g:quickrun_config = {
 NeoBundle 'cohama/vim-hier' " highlight error line
 NeoBundle 'bpearson/vim-phpcs' " PHP CodeSniffer
 NeoBundle 'tpope/vim-fugitive' " Git wrapper
-
+NeoBundle 'scrooloose/syntastic' " syntax highlighter
 
 call neobundle#end()
 
