@@ -23,6 +23,10 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 
+" tab operation (only works in GUI because terminals don't see a difference between <Tab> and <C-Tab>)
+nnoremap <C-S-Tab> :<C-u>tabprevious<CR>
+nnoremap <C-Tab> :<C-u>tabnext<CR>
+
 " use text base tabpage in gVim
 set guioptions-=e
 
