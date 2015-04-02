@@ -90,6 +90,7 @@ NeoBundle 'cohama/vim-hier' " highlight error line
 NeoBundle 'bpearson/vim-phpcs' " PHP CodeSniffer
 NeoBundle 'tpope/vim-fugitive' " Git wrapper
 NeoBundle 'scrooloose/syntastic' " syntax highlighter
+NeoBundle 'tpope/vim-jdaddy.git' " JSON formatter (type `gqij` or `gqaj` to pretty format)
 
 call neobundle#end()
 
