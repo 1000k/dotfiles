@@ -137,6 +137,7 @@ set whichwrap+=<,>,h,l,[,] " automatically wrap left and right
 set colorcolumn=80 " show line ruler
 set tags+=.tags " add '.tags' as default ctags file
 set modeline " enable modeline
+set scrolloff=3 " scroll offset 
 
 " enable auto indentation
 set autoindent
@@ -298,12 +299,12 @@ nnoremap tl :<C-u>tabnext<CR>
 nnoremap t0 :<C-u>tabfirst<CR>
 nnoremap t$ :<C-u>tablast<CR>
 
-" stay inside bracket
-imap () ()<Left>
-imap [] []<Left>
-imap {} {}<Left>
-imap "" ""<Left>
-imap '' ''<Left>
+" auto bracket completion
+inoremap {{ {}<LEFT>
+inoremap [[ []<LEFT>
+inoremap (( ()<LEFT>
+inoremap "" ""<LEFT>
+inoremap '' ''<LEFT>
 
 " fix vim regex dialect
 nmap / /\v
