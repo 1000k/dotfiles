@@ -28,6 +28,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 
 NeoBundle 'Shougo/unite.vim'  " File finder
+let g:unite_enable_start_insert = 1 " launch in insert mode
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'cygwin' : 'make -f make_cygwin.mak',
@@ -37,7 +38,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'Shougo/vimfiler' " Filer
-let g:unite_enable_start_insert = 1 " launch in insert mode
+let g:vimfiler_as_default_explorer = 1 " use VimFiler instead of netrw
+let g:vimfiler_safe_mode_by_default = 0 " start with safe mode = off
 NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files (`:Unite file_mru`)
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim' " keyword completion
@@ -93,6 +95,10 @@ NeoBundle 'bpearson/vim-phpcs' " PHP CodeSniffer
 NeoBundle 'tpope/vim-fugitive' " Git wrapper
 NeoBundle 'scrooloose/syntastic' " syntax highlighter
 NeoBundle 'tpope/vim-jdaddy.git' " JSON formatter (type `gqij` or `gqaj` to pretty format)
+" Emmet for vim
+NeoBundle 'mattn/emmet-vim'
+" Enhanced Javascript support
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 call neobundle#end()
 
