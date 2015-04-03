@@ -348,10 +348,11 @@ nnoremap gk k
 
 " plugin: Unite
 nnoremap [unite] <Nop>
-nmap <Space>u [unite]
-nnoremap <silent> [unite]b :Unite buffer<CR>
-nnoremap <silent> [unite]f :Unite file_rec<CR>
-nnoremap <silent> [unite]m :Unite file_mru<CR>
+nmap U [unite]
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file_rec<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]r :<C-u>Unite register<CR>
 
 " plugin: caw (toggle comment out on/off)
 nmap <leader>c <plug>(caw:i:toggle)
