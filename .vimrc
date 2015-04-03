@@ -314,7 +314,7 @@ nmap / /\v
 " SHIFT-Insert are Paste
 map <S-Insert>	"+gP
 "cmap <S-Insert>	"+gP+
-imap <S-Insert>	<C-o>P
+imap <S-Insert>	<C-o>p
 vmap <S-Insert>	"+gP
 
 " bind frequently used keys to useful position
