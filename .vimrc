@@ -314,7 +314,7 @@ nmap / /\v
 " SHIFT-Insert are Paste
 map <S-Insert>	"+gP
 "cmap <S-Insert>	"+gP+
-imap <S-Insert>	<C-o>p
+imap <S-Insert>	<C-o>P
 vmap <S-Insert>	"+gP
 
 " bind frequently used keys to useful position
@@ -358,6 +358,8 @@ nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]f :<C-u>Unite file_rec<CR>
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]r :<C-u>Unite register<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]y :<C-u>Unite yankround<CR>
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
