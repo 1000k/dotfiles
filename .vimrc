@@ -41,8 +41,10 @@ let g:unite_enable_start_insert = 1 " launch in insert mode
 NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files (`:Unite file_mru`)
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim' " keyword completion
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_smart_case = 1
+  let g:neocomplcache_enable_at_startup = 1  " Use neocomplcache.
+  let g:neocomplcache_enable_smart_case = 1   " Use smartcase.
+  let g:neocomplcache_enable_camel_case_completion = 1   " Use camel case completion.
+  let g:neocomplcache_enable_underbar_completion = 1   " Use underbar completion.
 
   " Plugin key-mappings.
   inoremap <expr><C-g>     neocomplete#undo_completion()
@@ -52,9 +54,9 @@ if has('lua')
   " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
   function! s:my_cr_function()
-    return neocomplete#close_popup() . "\<CR>"
+    "return neocomplete#close_popup() . "\<CR>"
     " For no inserting <CR> key.
-    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
   endfunction
   " <TAB>: completion.
   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
