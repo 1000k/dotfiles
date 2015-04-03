@@ -348,6 +348,9 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+" reload .vimrc and .gvimrc
+nnoremap gR :<C-u>so $MYVIMRC<CR>:so $MYGVIMRC<CR>
+
 " plugin: Unite
 nnoremap [unite] <Nop>
 nmap U [unite]
