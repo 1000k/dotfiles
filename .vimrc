@@ -100,6 +100,8 @@ NeoBundle 'mattn/emmet-vim'
 " Enhanced Javascript support
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'yonchu/accelerated-smooth-scroll' " smooth scroll
+let g:ac_smooth_scroll_fb_sleep_time_msec = 5 " scroll speed of <C-f> and <C-b>
+let g:ac_smooth_scroll_du_sleep_time_msec = 5 " scroll speed of <C-u> and <C-d>
 
 
 call neobundle#end()
