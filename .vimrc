@@ -99,6 +99,8 @@ NeoBundle 'tpope/vim-jdaddy.git' " JSON formatter (type `gqij` or `gqaj` to pret
 NeoBundle 'mattn/emmet-vim'
 " Enhanced Javascript support
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundle 'yonchu/accelerated-smooth-scroll' " smooth scroll
+
 
 call neobundle#end()
 
@@ -183,7 +185,7 @@ set laststatus=2
 " set colorscheme
 set t_Co=256
 let g:molokai_original=0
-let g:rehash256=1 
+let g:rehash256=1
 colorscheme molokai
 
 " visualize tab, space, line break
