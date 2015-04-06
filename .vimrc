@@ -30,13 +30,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'  " File finder
 let g:unite_enable_start_insert = 1 " launch in insert mode
 NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
+\  'build' : {
+\    'windows' : 'tools\\update-dll-mingw',
+\    'cygwin'  : 'make -f make_cygwin.mak',
+\    'mac'     : 'make -f make_mac.mak',
+\    'linux'   : 'make',
+\    'unix'    : 'gmake',
 \    },
-\ }
+\  }
 NeoBundle 'Shougo/vimfiler' " Filer
 let g:vimfiler_as_default_explorer = 1 " use VimFiler instead of netrw
 let g:vimfiler_safe_mode_by_default = 0 " start with safe mode = off
@@ -81,15 +82,37 @@ let g:lightline = {
 \ }
 NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
 NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
+let g:quickrun_config = {
+\  '_': {
+\    'runner'                    : 'vimproc',
+\    'runner/vimproc/updatetime' : 60
+\  },
+\  'go': {
+\    'command' : 'go',
+\    'exec'    : '%c run %s'
+\  },
+\  'make': {
+\    'command'   : 'make',
+\    'exec'      : '%c %o',
+\    'outputter' : 'error:buffer:quickfix'
+\  },
+\
+\  'watchdogs_checker/phpcs': {
+\    'command' : 'phpcs',
+\    'exec'    : '%c --report=emacs %s'
+\  },
+\  'php/watchdogs_checker': {
+\    'type' : 'watchdogs_checker/phpcs',
+\  },
+\  'ruby/watchdogs_checker': {
+\    'type'
+\      : executable('rubocop') ? 'watchdogs_checker/rubocop'
+\      : executable('ruby') ? 'watchdogs_checker/ruby'
+\      : '',
+\  }
+\}
 NeoBundle 'osyo-manga/shabadou.vim' " QuickRun snippets
 NeoBundle 'osyo-manga/vim-watchdogs' " check syntax
-if !exists("g:quickrun_config")
-  let g:quickrun_config = {}
-endif
-let g:quickrun_config = {
-\  "watchdogs_checker/_" : {
-\  },
-\}
 NeoBundle 'cohama/vim-hier' " highlight error line
 NeoBundle 'tpope/vim-fugitive' " Git wrapper
 NeoBundle 'scrooloose/syntastic' " syntax highlighter
@@ -116,6 +139,7 @@ NeoBundleCheck
 " NeoBundle related customization
 " ----------------
 " setup Watchdog
+let g:watchdogs_check_BufWritePost_enable = 1
 call watchdogs#setup(g:quickrun_config)
 
 " auto start Unite without argments
