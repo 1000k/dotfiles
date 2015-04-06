@@ -120,10 +120,12 @@ NeoBundleCheck
 " setup Watchdog
 call watchdogs#setup(g:quickrun_config)
 
-augroup startup
-  autocmd!
-  autocmd VimEnter * nested :Unite file_mru
-augroup END
+" auto start Unite without argments
+let file_name = expand('%')
+if has('vim_starting') && file_name == ''
+  autocmd VimEnter * Unite file_mru
+endif
+
 
 " ----------------
 " General
