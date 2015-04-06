@@ -25,30 +25,32 @@ vim_version = '7.4'
   package pkg
 end
 
-execute 'install_vim_from_source' do
-  cwd cache_dir
-  command <<-CMD
-    hg clone https://code.google.com/p/vim/
-    cd vim
-    ./configure --with-features=huge \
-      --enable-multibyte \
-      --enable-rubyinterp \
-      --enable-pythoninterp \
-      --with-python-config-dir=/usr/lib/python2.7/config \
-      --enable-perlinterp \
-      --enable-luainterp \
-      --enable-cscope \
-      --prefix=/usr
-    make VIMRUNTIMEDIR=/usr/share/vim/vim74
-    make install
-  CMD
-  not_if "which vim | grep #{vim_version}"
-end
+#execute 'install_vim_from_source' do
+#  cwd cache_dir
+#  command <<-CMD
+#    hg clone https://code.google.com/p/vim/
+#    cd vim
+#    ./configure --with-features=huge \
+#      --enable-multibyte \
+#      --enable-rubyinterp \
+#      --enable-pythoninterp \
+#      --with-python-config-dir=/usr/lib/python2.7/config \
+#      --enable-perlinterp \
+#      --enable-luainterp \
+#      --enable-cscope \
+#      --prefix=/usr
+#    make VIMRUNTIMEDIR=/usr/share/vim/vim74
+#    make install
+#  CMD
+#  not_if "which vim | grep #{vim_version}"
+#end
 
 
 # ----
 # install tmux
 # ----
+package 'xsel' # dependency for tmux-yank
+
 tmux_version = '1.9a'
 
 %w{wget gcc make ncurses ncurses-devel}.each { |pkg| package pkg }
