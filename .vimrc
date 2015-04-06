@@ -91,7 +91,6 @@ let g:quickrun_config = {
 \  },
 \}
 NeoBundle 'cohama/vim-hier' " highlight error line
-NeoBundle 'bpearson/vim-phpcs' " PHP CodeSniffer
 NeoBundle 'tpope/vim-fugitive' " Git wrapper
 NeoBundle 'scrooloose/syntastic' " syntax highlighter
 NeoBundle 'tpope/vim-jdaddy.git' " JSON formatter (type `gqij` or `gqaj` to pretty format)
@@ -99,6 +98,9 @@ NeoBundle 'tpope/vim-jdaddy.git' " JSON formatter (type `gqij` or `gqaj` to pret
 NeoBundle 'mattn/emmet-vim'
 " Enhanced Javascript support
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+" PHP CodeSniffer
+NeoBundleLazy 'bpearson/vim-phpcs', {'autoload': {'filetypes': ['php']}}
+
 
 call neobundle#end()
 
