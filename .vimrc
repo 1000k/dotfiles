@@ -77,9 +77,20 @@ NeoBundle 'nathanaelkane/vim-indent-guides' " Indent guide
 NeoBundle 'tpope/vim-surround' " the plugin provied mappings to easily modify such surroundings in pairs
 NeoBundle 'vim-scripts/Align'  " text formater
 NeoBundle 'LeafCage/yankround.vim' " advanced YankRing
+NeoBundle 'KazuakiM/vim-qfstatusline' " show quickfix contents in status line
 NeoBundle 'itchyny/lightline.vim' " improve statusline
 let g:lightline = {
-\ }
+\  'active': {
+\    'right': [ [ 'qfstatusline', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
+\  },
+\  'component_expand': {
+\    'qfstatusline': 'qfstatusline#Update',
+\  },
+\  'component_type': {
+\    'qfstatusline': 'error',
+\  },
+\}
+let g:Qfstatusline#UpdateCmd = function('lightline#update') " update lightline after :WatchdogsRun
 NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
 NeoBundle 'dannyob/quickfixstatus' " show syntax errors in status line
 NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
@@ -96,6 +107,9 @@ let g:quickrun_config = {
 \    'hook/close_quickfix/enable_exit' : 1,
 \    'hook/redraw_unite_quickfix/enable_exit' : 0,
 \    'hook/close_unite_quickfix/enable_exit' : 1,
+\    'outputter/quickfix/open_cmd' : '',
+\    'hook/qfstatusline_update/enable_exit' : 1,
+\    'hook/qfstatusline_update/priority_exit' : 4,
 \  }
 \}
 NeoBundle 'osyo-manga/shabadou.vim' " QuickRun snippets
