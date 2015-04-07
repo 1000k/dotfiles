@@ -423,7 +423,10 @@ nnoremap gj j
 nnoremap gk k
 
 " reload .vimrc and .gvimrc
-nnoremap gR :<C-u>so $MYVIMRC<CR>:so $MYGVIMRC<CR>
+nnoremap <Leader>R :<C-u>so $MYVIMRC<CR>:so $MYGVIMRC<CR>
+
+" expand current directory path
+cnoremap <expr>%% getcmdtype() == ':' ? expand('%:h') : '%%'
 
 " plugin: Unite
 nnoremap [unite] <Nop>
