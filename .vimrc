@@ -82,17 +82,26 @@ let g:lightline = {
 \ }
 NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
 NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
-let g:quickrun_config={'*': {'split': ''}}
-let g:quickrun_config._={ 'runner':'vimproc',
-\       "runner/vimproc/updatetime" : 10,
-\       "outputter/buffer/close_on_empty" : 1,
-\ }
+let g:quickrun_config = {
+\  '*': { 'split' : '' },
+\  '_': {
+\    'runner': 'vimproc',
+\    'runner/vimproc/updatetime' : 10,
+\    'hook/unite_quickfix/enable' : 0,
+\    'hook/echo/enable' : 0,
+\    'hook/back_buffer/enable' : 0,
+\    'hook/close_unite_quickfix/enable' : 0,
+\    'hook/close_buffer/enable_exit' : 0,
+\    'hook/close_quickfix/enable_exit' : 1,
+\    'hook/redraw_unite_quickfix/enable_exit' : 0,
+\    'hook/close_unite_quickfix/enable_exit' : 1,
+\  }
+\}
 NeoBundle 'osyo-manga/shabadou.vim' " QuickRun snippets
 NeoBundle 'osyo-manga/vim-watchdogs' " check syntax
 NeoBundle 'cohama/vim-hier' " highlight error line
 NeoBundle 'tpope/vim-fugitive' " Git wrapper
 NeoBundle 'townk/vim-autoclose' " add cloes chars automatically
-NeoBundle 'scrooloose/syntastic' " syntax highlighter
 NeoBundle 'tpope/vim-jdaddy.git' " JSON formatter (type `gqij` or `gqaj` to pretty format)
 " Emmet for vim
 NeoBundle 'mattn/emmet-vim'
@@ -115,8 +124,13 @@ NeoBundleCheck
 " ----------------
 " NeoBundle related customization
 " ----------------
-" setup Watchdog
-let g:watchdogs_check_BufWritePost_enable = 1
+" setup WatchDogs
+let g:watchdogs_check_BufWritePost_enable = 1 " check on save
+let g:watchdogs_check_CursorHold_enable = 1 " check on interval
+let g:watchdogs_check_CursorHold_enables = {
+\ 'php' : 1,
+\ 'ruby' : 1,
+\}
 call watchdogs#setup(g:quickrun_config)
 
 " auto start Unite without argments
