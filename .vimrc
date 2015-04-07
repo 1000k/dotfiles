@@ -81,6 +81,7 @@ NeoBundle 'itchyny/lightline.vim' " improve statusline
 let g:lightline = {
 \ }
 NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
+NeoBundle 'dannyob/quickfixstatus' " show syntax errors in status line
 NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
 let g:quickrun_config = {
 \  '*': { 'split' : '' },
