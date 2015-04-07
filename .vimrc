@@ -82,39 +82,16 @@ let g:lightline = {
 \ }
 NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
 NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
-let g:quickrun_config = {
-\  '_': {
-\    'runner'                    : 'vimproc',
-\    'runner/vimproc/updatetime' : 60
-\  },
-\  'go': {
-\    'command' : 'go',
-\    'exec'    : '%c run %s'
-\  },
-\  'make': {
-\    'command'   : 'make',
-\    'exec'      : '%c %o',
-\    'outputter' : 'error:buffer:quickfix'
-\  },
-\
-\  'watchdogs_checker/phpcs': {
-\    'command' : 'phpcs',
-\    'exec'    : '%c --report=emacs %s'
-\  },
-\  'php/watchdogs_checker': {
-\    'type' : 'watchdogs_checker/phpcs',
-\  },
-\  'ruby/watchdogs_checker': {
-\    'type'
-\      : executable('rubocop') ? 'watchdogs_checker/rubocop'
-\      : executable('ruby') ? 'watchdogs_checker/ruby'
-\      : '',
-\  }
-\}
+let g:quickrun_config={'*': {'split': ''}}
+let g:quickrun_config._={ 'runner':'vimproc',
+\       "runner/vimproc/updatetime" : 10,
+\       "outputter/buffer/close_on_empty" : 1,
+\ }
 NeoBundle 'osyo-manga/shabadou.vim' " QuickRun snippets
 NeoBundle 'osyo-manga/vim-watchdogs' " check syntax
 NeoBundle 'cohama/vim-hier' " highlight error line
 NeoBundle 'tpope/vim-fugitive' " Git wrapper
+NeoBundle 'townk/vim-autoclose' " add cloes chars automatically
 NeoBundle 'scrooloose/syntastic' " syntax highlighter
 NeoBundle 'tpope/vim-jdaddy.git' " JSON formatter (type `gqij` or `gqaj` to pretty format)
 " Emmet for vim
@@ -334,13 +311,6 @@ nnoremap th :<C-u>tabprevious<CR>
 nnoremap tl :<C-u>tabnext<CR>
 nnoremap t0 :<C-u>tabfirst<CR>
 nnoremap t$ :<C-u>tablast<CR>
-
-" auto bracket completion
-inoremap {{ {}<LEFT>
-inoremap [[ []<LEFT>
-inoremap (( ()<LEFT>
-inoremap "" ""<LEFT>
-inoremap '' ''<LEFT>
 
 " fix vim regex dialect
 nmap / /\v
