@@ -115,6 +115,7 @@ NeoBundle 'ntpeters/vim-better-whitespace'  " highlight trailing whitespaces
 NeoBundle 'tyru/caw.vim'  " support comment out
 NeoBundle 'tpope/vim-unimpaired'  " pairs of handy bracket mappings
 NeoBundle 'nathanaelkane/vim-indent-guides' " Indent guide
+let g:indent_guides_enable_on_vim_startup=1
 NeoBundle 'tpope/vim-surround' " the plugin provied mappings to easily modify such surroundings in pairs
 NeoBundle 'vim-scripts/Align'  " text formater
 NeoBundle 'LeafCage/yankround.vim' " advanced YankRing
