@@ -241,6 +241,8 @@ if ! empty(neobundle#get("vim-rooter"))
   let g:rooter_use_lcd = 1
   " files/directories for the root directory
   let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
+  " don't echo the project directory
+  let g:rooter_silent_chdir = 1
   " Automatically change the directory
   "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
 endif
@@ -518,6 +520,9 @@ nnoremap <Leader>R :<C-u>so $MYVIMRC<CR>:so $MYGVIMRC<CR>
 
 " expand current directory path
 cnoremap <expr>%% getcmdtype() == ':' ? expand('%:h') : '%%'
+
+" update ctags
+nnoremap <F5> :<C-u>call vimproc#system_bg('ctags -R')<CR>
 
 " plugin: Unite
 nnoremap [unite] <Nop>
