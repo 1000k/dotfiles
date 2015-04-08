@@ -250,6 +250,10 @@ if has("path_extra")
   set tags+=tags; " find tags file recursively forwardparent directories
 endif
 
+" class outline viewer
+NeoBundle 'majutsushi/tagbar'
+nmap <F8> :TagbarToggle<CR>
+
 " Emmet for vim
 NeoBundle 'mattn/emmet-vim'
 
