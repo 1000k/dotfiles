@@ -38,10 +38,14 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    'unix'    : 'gmake',
 \    },
 \  }
-NeoBundle 'Shougo/vimfiler' " Filer
+
+" Filer
+NeoBundle 'Shougo/vimfiler'
 let g:vimfiler_as_default_explorer = 1 " use VimFiler instead of netrw
 let g:vimfiler_safe_mode_by_default = 0 " start with safe mode = off
-NeoBundle 'Shougo/neomru.vim' " Enhance unite.vim to access to recent opened files (`:Unite file_mru`)
+
+" Enhance unite.vim to access to recent opened files (`:Unite file_mru`)
+NeoBundle 'Shougo/neomru.vim'
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim' " keyword completion
   " Disable AutoComplPop.
@@ -53,7 +57,7 @@ if has('lua')
   " Set minimum syntax keyword length.
   let g:neocomplete#sources#syntax#min_keyword_length = 3
   let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-  
+
   " Define dictionary.
   let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
@@ -66,7 +70,7 @@ if has('lua')
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  
+
   " Enable heavy omni completion.
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
@@ -90,9 +94,15 @@ if has('lua')
   inoremap <expr><C-e>  neocomplete#cancel_popup()
 end
 
-NeoBundle 'Shougo/neosnippet' " add snippet support
-NeoBundle 'Shougo/neosnippet-snippets' " default snippets for neosnippet
-NeoBundle 'honza/vim-snippets' " extra snippets
+
+" add snippet support
+NeoBundle 'Shougo/neosnippet'
+
+" default snippets for neosnippet
+NeoBundle 'Shougo/neosnippet-snippets'
+
+" extra snippets
+NeoBundle 'honza/vim-snippets'
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -110,17 +120,37 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-NeoBundle 'ujihisa/unite-colorscheme' " Preview color scheme (`:Unite colorscheme -auto-preview`)
-NeoBundle 'ntpeters/vim-better-whitespace'  " highlight trailing whitespaces
-NeoBundle 'tyru/caw.vim'  " support comment out
-NeoBundle 'tpope/vim-unimpaired'  " pairs of handy bracket mappings
-NeoBundle 'nathanaelkane/vim-indent-guides' " Indent guide
+
+" Preview color scheme (`:Unite colorscheme -auto-preview`)
+NeoBundle 'ujihisa/unite-colorscheme'
+
+" highlight trailing whitespaces
+NeoBundle 'ntpeters/vim-better-whitespace'
+
+" support comment out
+NeoBundle 'tyru/caw.vim'
+
+" pairs of handy bracket mappings
+NeoBundle 'tpope/vim-unimpaired'
+
+" Indent guide
+NeoBundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
-NeoBundle 'tpope/vim-surround' " the plugin provied mappings to easily modify such surroundings in pairs
-NeoBundle 'vim-scripts/Align'  " text formater
-NeoBundle 'LeafCage/yankround.vim' " advanced YankRing
-NeoBundle 'KazuakiM/vim-qfstatusline' " show quickfix contents in status line
-NeoBundle 'itchyny/lightline.vim' " improve statusline
+
+" the plugin provied mappings to easily modify such surroundings in pairs
+NeoBundle 'tpope/vim-surround'
+
+" text formater
+NeoBundle 'vim-scripts/Align'
+
+" advanced YankRing
+NeoBundle 'LeafCage/yankround.vim'
+
+" show quickfix contents in status line
+NeoBundle 'KazuakiM/vim-qfstatusline'
+
+" improve statusline
+NeoBundle 'itchyny/lightline.vim'
 let g:lightline = {
 \  'active': {
 \    'right': [ [ 'qfstatusline', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
@@ -133,9 +163,15 @@ let g:lightline = {
 \  },
 \}
 let g:Qfstatusline#UpdateCmd = function('lightline#update') " update lightline after :WatchdogsRun
-NeoBundle 'terryma/vim-multiple-cursors' " multi line manupilation like Sublime text (`Ctrl+n` to launch)
-NeoBundle 'dannyob/quickfixstatus' " show syntax errors in status line
-NeoBundle 'thinca/vim-quickrun' " `:QuickRun {filetype}`
+
+" multi line manupilation like Sublime text (`Ctrl+n` to launch)
+NeoBundle 'terryma/vim-multiple-cursors'
+
+" show syntax errors in status line
+NeoBundle 'dannyob/quickfixstatus'
+
+" `:QuickRun {filetype}`
+NeoBundle 'thinca/vim-quickrun'
 let g:quickrun_config = {
 \  '*': { 'split' : '' },
 \  '_': {
@@ -154,16 +190,70 @@ let g:quickrun_config = {
 \    'hook/qfstatusline_update/priority_exit' : 4,
 \  }
 \}
-NeoBundle 'osyo-manga/shabadou.vim' " QuickRun snippets
-NeoBundle 'osyo-manga/vim-watchdogs' " check syntax
-NeoBundle 'cohama/vim-hier' " highlight error line
-NeoBundle 'tpope/vim-fugitive' " Git wrapper
-NeoBundle 'townk/vim-autoclose' " add cloes chars automatically
-NeoBundle 'tpope/vim-jdaddy.git' " JSON formatter (type `gqij` or `gqaj` to pretty format)
+
+" QuickRun snippets
+NeoBundle 'osyo-manga/shabadou.vim'
+
+" check syntax
+NeoBundle 'osyo-manga/vim-watchdogs'
+
+" highlight error line
+NeoBundle 'cohama/vim-hier'
+
+" Git wrapper
+NeoBundle 'tpope/vim-fugitive'
+
+" add cloes chars automatically
+NeoBundle 'townk/vim-autoclose'
+
+" JSON formatter (type `gqij` or `gqaj` to pretty format)
+NeoBundle 'tpope/vim-jdaddy.git'
+
+" create Ctags file automatically
+NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+\  'depends': ['Shougo/vimproc'],
+\  'autoload' : {
+\     'commands' : [
+\        { 'name' : 'AlpacaTagsBundle', 'complete': 'customlist,alpaca_tags#complete_source' },
+\        { 'name' : 'AlpacaTagsUpdate', 'complete': 'customlist,alpaca_tags#complete_source' },
+\        'AlpacaTagsSet', 'AlpacaTagsCleanCache', 'AlpacaTagsEnable', 'AlpacaTagsDisable', 'AlpacaTagsKillProcess', 'AlpacaTagsProcessStatus',
+\     ],
+\  }
+\}
+let g:alpaca_tags#config = {
+\  '_' : '-R --sort=yes',
+\  'ruby': '--languages=+Ruby',
+\  'php': '--languages=+php',
+\}
+augroup AlpacaTags
+  autocmd!
+  if exists(':AlpacaTags')
+    autocmd BufWritePost Gemfile AlpacaTagsBundle
+    autocmd BufEnter * AlpacaTagsSet
+    autocmd BufWritePost * AlpacaTagsUpdate
+  endif
+augroup END
+
+" find current projects' root directory and lcd
+NeoBundle "airblade/vim-rooter"
+if ! empty(neobundle#get("vim-rooter"))
+  " Change only current window's directory
+  let g:rooter_use_lcd = 1
+  " files/directories for the root directory
+  let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
+  " Automatically change the directory
+  "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
+endif
+if has("path_extra")
+  set tags+=tags; " find tags file recursively forwardparent directories
+endif
+
 " Emmet for vim
 NeoBundle 'mattn/emmet-vim'
+
 " Enhanced Javascript support
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+
 " PHP CodeSniffer
 NeoBundleLazy 'bpearson/vim-phpcs', {'autoload': {'filetypes': ['php']}}
 
@@ -221,7 +311,7 @@ set whichwrap+=<,>,h,l,[,] " automatically wrap left and right
 set colorcolumn=80 " show line ruler
 set tags+=.tags " add '.tags' as default ctags file
 set modeline " enable modeline
-set scrolloff=3 " scroll offset 
+set scrolloff=3 " scroll offset
 
 " enable auto indentation
 set autoindent
