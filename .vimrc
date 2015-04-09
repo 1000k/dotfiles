@@ -483,10 +483,10 @@ nnoremap t$ :<C-u>tablast<CR>
 nmap / /\v
 
 " SHIFT-Insert are Paste
-map <S-Insert>	"+gP
-"cmap <S-Insert>	"+gP+
+map <S-Insert>	"+gp
+"cmap <S-Insert>	"+gp+
 imap <S-Insert>	<C-o>p
-vmap <S-Insert>	"+gP
+vmap <S-Insert>	"+gp
 
 " bind frequently used keys to useful position
 noremap <Space>h  ^
