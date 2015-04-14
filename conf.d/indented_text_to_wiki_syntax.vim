@@ -23,3 +23,11 @@ function! TabbedTextToRedmine()
   "silent! %s/^\[\*\n\]\@!/=== /g
   noh
 endfunction
+
+" Markdown
+" TODO implement
+" function! TabbedTextToMarkdown()
+
+command! TabbedTextToTrac :call TabbedTextToTrac()
+command! TabbedTextToRedmine :call TabbedTextToRedmine()
+
