@@ -520,7 +520,7 @@ nnoremap gj j
 nnoremap gk k
 
 " reload .vimrc and .gvimrc
-nnoremap <Leader>R :<C-u>so $MYVIMRC<CR>:so $MYGVIMRC<CR>
+nnoremap <Leader>R :<C-u>so $MYVIMRC<CR>
 
 " expand current directory path
 cnoremap <expr>%% getcmdtype() == ':' ? expand('%:h') : '%%'
@@ -573,3 +573,6 @@ command! ToUnix set ff=unix
 set runtimepath+=$HOME/.vim/
 runtime! conf.d/*.vim
 
+if has("gui")
+  runtime! $MYGVIMRC
+end
