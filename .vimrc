@@ -166,6 +166,17 @@ let g:Qfstatusline#UpdateCmd = function('lightline#update') " update lightline a
 
 " multi line manupilation like Sublime text (`Ctrl+n` to launch)
 NeoBundle 'terryma/vim-multiple-cursors'
+" prevent conflict with Neocomplete
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
 
 " show syntax errors in status line
 NeoBundle 'dannyob/quickfixstatus'
