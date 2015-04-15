@@ -259,6 +259,7 @@ NeoBundle 'mattn/emmet-vim'
 
 " searches '.lvimrc' under the current directories and adapt local settings
 NeoBundle 'embear/vim-localvimrc'
+let g:localvimrc_ask = 0 " Don't ask before loading a vimrc file
 
 " Enhanced Javascript support
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
