@@ -257,10 +257,13 @@ nmap <F8> :TagbarToggle<CR>
 " Emmet for vim
 NeoBundle 'mattn/emmet-vim'
 
+" searches '.lvimrc' under the current directories and adapt local settings
+NeoBundle 'embear/vim-localvimrc'
+
 " Enhanced Javascript support
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
-" PHP CodeSniffer
+" PHP CodeSniffer (run with `:CodeSniff`)
 NeoBundleLazy 'bpearson/vim-phpcs', {'autoload': {'filetypes': ['php']}}
 
 
