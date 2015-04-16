@@ -247,7 +247,7 @@ augroup END
 
 " find current projects' root directory and lcd
 NeoBundle "airblade/vim-rooter"
-if ! empty(neobundle#get("vim-rooter"))
+if neobundle#is_installed("vim-rooter")
   " Change only current window's directory
   let g:rooter_use_lcd = 1
   " files/directories for the root directory
@@ -271,6 +271,9 @@ NeoBundle 'mattn/emmet-vim'
 " searches '.lvimrc' under the current directories and adapt local settings
 NeoBundle 'embear/vim-localvimrc'
 let g:localvimrc_ask = 0 " Don't ask before loading a vimrc file
+
+" define custom mode
+NeoBundle 'kana/vim-submode'
 
 " Enhanced Javascript support
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
@@ -305,6 +308,28 @@ call watchdogs#setup(g:quickrun_config)
 let file_name = expand('%')
 if has('vim_starting') && file_name == ''
   autocmd VimEnter * Unite file_mru
+endif
+
+if neobundle#is_installed('vim-submode')
+  let g:submode_timeout = 0
+  " change windows size mode
+  call submode#enter_with('window', 'n', '', '<C-w><C-w>', '<Nop>')
+  call submode#leave_with('window', 'n', '', '<Esc>')
+  call submode#map('window', 'n', '', 'j', '<C-w>j')
+  call submode#map('window', 'n', '', 'J', '<C-w>J')
+  call submode#map('window', 'n', '', 'k', '<C-w>k')
+  call submode#map('window', 'n', '', 'K', '<C-w>K')
+  call submode#map('window', 'n', '', 'l', '<C-w>l')
+  call submode#map('window', 'n', '', 'L', '<C-w>L')
+  call submode#map('window', 'n', '', 'h', '<C-w>h')
+  call submode#map('window', 'n', '', 'H', '<C-w>h')
+  call submode#map('window', 'n', '', 's', '<C-w>s')
+  call submode#map('window', 'n', '', 'v', '<C-w>v')
+  call submode#map('window', 'n', '', 'x', ':q<CR>')
+  call submode#map('window', 'n', '', '>', '<C-w>5>')
+  call submode#map('window', 'n', '', '<', '<C-w>5<lt>')
+  call submode#map('window', 'n', '', '+', '<C-w>5+')
+  call submode#map('window', 'n', '', '-', '<C-w>5-')
 endif
 
 

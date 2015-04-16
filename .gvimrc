@@ -1,6 +1,7 @@
 " **NOTE**
 " If using VIM Kaoriya version, remove 'vimrc' and 'gvimrc' at first
 
+
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
 if has('autocmd')
