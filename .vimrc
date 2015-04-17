@@ -573,7 +573,7 @@ nnoremap <F5> :<C-u>call vimproc#system_bg('ctags -R')<CR>
 " plugin: Unite
 nnoremap [unite] <Nop>
 nmap U [unite]
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer_tab<CR>
 nnoremap <silent> [unite]f :<C-u>Unite file_rec<CR>
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]r :<C-u>Unite register<CR>
