@@ -295,19 +295,21 @@ NeoBundleCheck
 " ----------------
 " NeoBundle related customization
 " ----------------
-" setup WatchDogs
-let g:watchdogs_check_BufWritePost_enable = 1 " check on save
-let g:watchdogs_check_CursorHold_enable = 1 " check on interval
-let g:watchdogs_check_CursorHold_enables = {
-\ 'php' : 1,
-\ 'ruby' : 1,
-\}
-call watchdogs#setup(g:quickrun_config)
-
 " auto start Unite without argments
 let file_name = expand('%')
 if has('vim_starting') && file_name == ''
   autocmd VimEnter * Unite file_mru
+endif
+
+" setup WatchDogs
+if neobundle#is_installed('vim-watchdogs')
+  let g:watchdogs_check_BufWritePost_enable = 1 " check on save
+  let g:watchdogs_check_CursorHold_enable = 1 " check on interval
+  let g:watchdogs_check_CursorHold_enables = {
+  \ 'php' : 1,
+  \ 'ruby' : 1,
+  \}
+  call watchdogs#setup(g:quickrun_config)
 endif
 
 if neobundle#is_installed('vim-submode')
@@ -577,8 +579,12 @@ nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]r :<C-u>Unite register<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]y :<C-u>Unite yankround<CR>
+" exit Unite immediately from Unite with <ESC>*2
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+" plugin: VimFiler
+nmap <F2> :VimFilerBufferDir<CR>
 
 " plugin: caw (toggle comment out on/off)
 nmap <leader>c <plug>(caw:i:toggle)
