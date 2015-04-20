@@ -14,6 +14,7 @@ mklink "%home_dir%\_gvimrc" "%dotfiles_dir%\.gvimrc"
 mklink /d "%vim_dir%\conf.d" "%dotfiles_dir%\conf.d"
 mklink /d "%vimfiles_dir%\colors" "%dotfiles_dir%\colors"
 mklink /d "%vimfiles_dir%\indent" "%dotfiles_dir%\indent"
+mklink /d "%vimfiles_dir%\after" "%dotfiles_dir%\after"
 
 git clone https://github.com/Shougo/neobundle.vim "%vim_dir%\bundle\neobundle.vim"
 
