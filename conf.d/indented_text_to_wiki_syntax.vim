@@ -25,9 +25,18 @@ function! TabbedTextToRedmine()
 endfunction
 
 " Markdown
-" TODO implement
-" function! TabbedTextToMarkdown()
+function! TabbedTextToMarkdown()
+  silent! %s/^\t\{6}/        - /g
+  silent! %s/^\t\{5}/      - /g
+  silent! %s/^\t\{4}/    - /g
+  silent! %s/^\t\{3}/  - /g
+  silent! %s/^\t\{2}/- /g
+  silent! %s/^\t\{1}\(.*\)/\1--------/g
+  "silent! %s/^\[\*\n\]\@!/=== /g
+  noh
+endfunction
 
 command! TabbedTextToTrac :call TabbedTextToTrac()
 command! TabbedTextToRedmine :call TabbedTextToRedmine()
+command! TabbedTextToMarkdown :call TabbedTextToMarkdown()
 
