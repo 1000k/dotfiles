@@ -521,8 +521,10 @@ nnoremap tl :<C-u>tabnext<CR>
 nnoremap t0 :<C-u>tabfirst<CR>
 nnoremap t$ :<C-u>tablast<CR>
 
-" fix vim regex dialect
-nmap / /\v
+" fix vim regex dialect (use very magic mode)
+nnoremap / /\v
+vnoremap / /\v
+cnoremap %s %s/\v
 
 " SHIFT-Insert are Paste
 map <S-Insert>	"+gp
