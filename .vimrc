@@ -31,7 +31,6 @@ NeoBundle 'Shougo/unite.vim'  " File finder
 let g:unite_enable_start_insert = 1 " launch in insert mode
 NeoBundle 'Shougo/vimproc.vim', {
 \  'build' : {
-\    'windows' : 'tools\\update-dll-mingw',
 \    'cygwin'  : 'make -f make_cygwin.mak',
 \    'mac'     : 'make -f make_mac.mak',
 \    'linux'   : 'make',
@@ -57,6 +56,7 @@ if has('lua')
   " Set minimum syntax keyword length.
   let g:neocomplete#sources#syntax#min_keyword_length = 3
   let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+  let g:neocomplete#sources#buffer#max_keyword_width = 30
 
   " Define dictionary.
   let g:neocomplete#sources#dictionary#dictionaries = {
