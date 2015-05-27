@@ -580,7 +580,8 @@ nnoremap <F5> :<C-u>call vimproc#system_bg('ctags -R')<CR>
 " plugin: Unite
 nnoremap [unite] <Nop>
 nmap U [unite]
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite bookmark<CR>
+nnoremap <silent> [unite]B :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]f :<C-u>Unite file_rec<CR>
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]r :<C-u>Unite register<CR>
@@ -591,7 +592,7 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 " plugin: VimFiler
-nmap <F2> :VimFilerBufferDir<CR>
+nmap <F10> :VimFiler<CR>
 
 " plugin: caw (toggle comment out on/off)
 nmap <leader>c <plug>(caw:i:toggle)
