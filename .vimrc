@@ -27,8 +27,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
-NeoBundle 'Shougo/unite.vim'  " File finder
+" File finder
+NeoBundle 'Shougo/unite.vim'
 let g:unite_enable_start_insert = 1 " launch in insert mode
+
+" Multi process
 NeoBundle 'Shougo/vimproc.vim', {
 \  'build' : {
 \    'cygwin'  : 'make -f make_cygwin.mak',
@@ -266,7 +269,7 @@ NeoBundle 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
 " Emmet for vim
-NeoBundle 'mattn/emmet-vim'
+NeoBundleLazy 'mattn/emmet-vim', {'autoload': {'filetypes': ['html', 'css', 'scss', 'sass']}}
 
 " searches '.lvimrc' under the current directories and adapt local settings
 NeoBundle 'embear/vim-localvimrc'
@@ -336,6 +339,15 @@ endif
 
 
 " ----------------
+" Color scheme
+" ----------------
+set t_Co=256
+let g:molokai_original=0
+let g:rehash256=1
+colorscheme molokai
+
+
+" ----------------
 " General
 " ----------------
 
@@ -394,12 +406,6 @@ set statusline+=:%c\        " column number
 set statusline+=%P\         " cursor position (%)
 set laststatus=2
 
-" set colorscheme
-set t_Co=256
-let g:molokai_original=0
-let g:rehash256=1
-colorscheme molokai
-
 " visualize tab, space, line break
 set list
 set listchars=tab:▸\ ,trail:_,extends:»,precedes:«,nbsp:%,eol:↲
@@ -425,7 +431,6 @@ if has("autocmd")
     \   exe "normal! g'\"" |
     \ endif
 endif
-
 
 " ----------------
 " Neat folding text
