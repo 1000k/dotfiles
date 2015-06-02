@@ -2,6 +2,9 @@
 
 cache_dir = Chef::Config['file_cache_path']
 
+package 'zsh'
+echo '\e[33mTo change shell to zsh, please enter "chsh -s /bin/zsh" and password.'
+
 # ----
 # install vim
 # ----
