@@ -33,13 +33,14 @@ let g:unite_enable_start_insert = 1 " launch in insert mode
 
 " Multi process
 NeoBundle 'Shougo/vimproc.vim', {
-\  'build' : {
-\    'cygwin'  : 'make -f make_cygwin.mak',
-\    'mac'     : 'make -f make_mac.mak',
-\    'linux'   : 'make',
-\    'unix'    : 'gmake',
-\    },
-\  }
+\ 'build' : {
+\   'windows' : 'tools\\update-dll-mingw',
+\   'cygwin' : 'make -f make_cygwin.mak',
+\   'mac' : 'make -f make_mac.mak',
+\   'linux' : 'make',
+\   'unix' : 'gmake',
+\   },
+\ }
 
 " Filer
 NeoBundle 'Shougo/vimfiler'
@@ -96,7 +97,6 @@ if has('lua')
   inoremap <expr><C-y>  neocomplete#close_popup()
   inoremap <expr><C-e>  neocomplete#cancel_popup()
 end
-
 
 " add snippet support
 NeoBundle 'Shougo/neosnippet'
