@@ -37,7 +37,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \   'windows' : 'tools\\update-dll-mingw',
 \   'cygwin' : 'make -f make_cygwin.mak',
 \   'mac' : 'make -f make_mac.mak',
-\   'linux' : 'make',
+\   'linux' : 'make -f make_unix.mak',
 \   'unix' : 'gmake',
 \   },
 \ }
@@ -225,7 +225,7 @@ NeoBundle 'tpope/vim-jdaddy.git'
 
 " create Ctags file automatically
 NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-\  'depends': ['Shougo/vimproc'],
+\  'depends': ['Shougo/vimproc.vim'],
 \  'autoload' : {
 \     'commands' : [
 \        { 'name' : 'AlpacaTagsBundle', 'complete': 'customlist,alpaca_tags#complete_source' },
