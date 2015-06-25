@@ -408,7 +408,7 @@ set laststatus=2
 
 " visualize tab, space, line break
 set list
-set listchars=tab:▸\ ,trail:_,extends:»,precedes:«,nbsp:%,eol:↲
+set listchars=tab:>\ ,trail:_,extends:>,precedes:<,eol:$
 
 " highlight zenkaku space
 function! ZenkakuSpace()
