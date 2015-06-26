@@ -526,6 +526,14 @@ nnoremap tl :<C-u>tabnext<CR>
 nnoremap t0 :<C-u>tabfirst<CR>
 nnoremap t$ :<C-u>tablast<CR>
 
+" [Copy to|Paste from] system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
 " fix vim regex dialect (use very magic mode)
 nnoremap / /\v
 vnoremap / /\v
