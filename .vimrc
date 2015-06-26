@@ -517,7 +517,7 @@ endif
 " Custom key mappings
 " ----------------
 " leader key
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " tab operation
 nnoremap tn :<C-u>tabnew<CR>
@@ -538,12 +538,12 @@ imap <S-Insert>	<C-o>p
 vmap <S-Insert>	"+gp
 
 " bind frequently used keys to useful position
-noremap <Space>h  ^
-noremap <Space>l  $
-nnoremap <Space>/  *
+noremap <Leader>h  ^
+noremap <Leader>l  $
+nnoremap <Leader>/  *
 
 " open .vimrc
-nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
+nnoremap <Leader>. :<C-u>tabedit $MYVIMRC<CR>
 
 " turn off highlight by double <Esc>
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
@@ -595,8 +595,8 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 nmap <F10> :VimFiler<CR>
 
 " plugin: caw (toggle comment out on/off)
-nmap <leader>c <plug>(caw:i:toggle)
-vmap <leader>c <plug>(caw:i:toggle)
+nmap <Leader>c <plug>(caw:i:toggle)
+vmap <Leader>c <plug>(caw:i:toggle)
 
 " plugin: yankround
 nmap p <Plug>(yankround-p)
