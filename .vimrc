@@ -555,8 +555,16 @@ noremap <Leader>h  ^
 noremap <Leader>l  $
 nnoremap <Leader>/  *
 
+" serial paste
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
 " open .vimrc
 nnoremap <Leader>. :<C-u>tabedit $MYVIMRC<CR>
+
+" reload .vimrc and .gvimrc
+nnoremap <Leader>R :<C-u>so $MYVIMRC<CR>
 
 " turn off highlight by double <Esc>
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
@@ -580,9 +588,6 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-
-" reload .vimrc and .gvimrc
-nnoremap <Leader>R :<C-u>so $MYVIMRC<CR>
 
 " expand current directory path
 cnoremap <expr>%% getcmdtype() == ':' ? expand('%:h') : '%%'
