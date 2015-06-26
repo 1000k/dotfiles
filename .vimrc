@@ -181,6 +181,11 @@ function! Multiple_cursors_after()
   endif
 endfunction
 
+" visually select incresingly larger regions of text
+NeoBundle 'terryma/vim-expand-region'
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 " show syntax errors in status line
 NeoBundle 'dannyob/quickfixstatus'
 
