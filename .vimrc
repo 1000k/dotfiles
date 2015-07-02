@@ -315,6 +315,9 @@ let g:localvimrc_ask = 0 " Don't ask before loading a vimrc file
 " define custom mode
 NeoBundle 'kana/vim-submode'
 
+" helps to end certain structures automatically for Ruby, Bash, VC, C/C++, Lua
+NeoBundle 'tpope/vim-endwise'
+
 " Enhanced Javascript support
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
