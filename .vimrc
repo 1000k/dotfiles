@@ -233,10 +233,6 @@ nmap <F8> :TagbarToggle<CR>
 " Emmet for vim
 NeoBundleLazy 'mattn/emmet-vim', {'autoload': {'filetypes': ['html', 'css', 'scss', 'sass']}}
 
-" searches '.lvimrc' under the current directories and adapt local settings
-NeoBundle 'embear/vim-localvimrc'
-let g:localvimrc_ask = 0 " Don't ask before loading a vimrc file
-
 " define custom mode
 NeoBundle 'kana/vim-submode'
 
