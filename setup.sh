@@ -8,9 +8,11 @@ done
 # Vim
 mkdir ~/.vim
 mkdir ~/.vim/bundle
-ln -sf ~/dotfiles/colors ~/.vim/colors
-ln -sf ~/dotfiles/indent ~/.vim/indent
-ln -sf ~/dotfiles/after ~/.vim/after
+
+links=(conf.d colors indent after)
+for link in ${links[@]}; do
+  ln -sf ~/dotfiles/.vim/${link} ~/.vim/${link}
+done
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 # tmux

@@ -19,7 +19,7 @@ set showtabline=2 " show tab always
 set cursorline " show cursorline
 set encoding=utf-8 " set default character encoding
 set whichwrap+=<,>,h,l,[,] " automatically wrap left and right
-set colorcolumn=80 " show line ruler
+"set colorcolumn=80 " show line ruler
 set tags+=.tags " add '.tags' as default ctags file
 set modeline " enable modeline
 set scrolloff=3 " scroll offset
