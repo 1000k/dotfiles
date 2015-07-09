@@ -243,6 +243,19 @@ NeoBundle 'kana/vim-submode'
 " helps to end certain structures automatically for Ruby, Bash, VC, C/C++, Lua
 NeoBundle 'tpope/vim-endwise'
 
+" enhanced incsearch
+NeoBundle 'haya14busa/incsearch.vim'
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
 " Enhanced Javascript support
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
@@ -500,8 +513,8 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " fix vim regex dialect (use very magic mode)
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 cnoremap %s %s/\v
 
 " SHIFT-Insert are Paste
