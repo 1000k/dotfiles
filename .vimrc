@@ -251,6 +251,9 @@ command! ToSjis set fileencoding=sjis
 " change linebreak character
 command! ToUnix set ff=unix
 
+" rename (delete current file and create new one)
+command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
+
 
 " ----------------
 " Load conf.d
