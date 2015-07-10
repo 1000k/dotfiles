@@ -254,6 +254,8 @@ command! ToUnix set ff=unix
 " rename (delete current file and create new one)
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
+command! LcdCurrentFile lcd %:h
+
 
 " ----------------
 " Load conf.d
