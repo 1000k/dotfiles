@@ -8,26 +8,47 @@ echoCol() {
   echo -en "\e[m"
 }
 
-echoCol 36 'Installing dotfiles...'
-files=(.vimrc .zshrc .zshenv .tmux.conf)
-for file in ${files[@]}; do
-  ln -sf ~/dotfiles/${file} ~/${file}
-done
+lnDotfile() {
+  echo "ln -sf ~/dotfiles/${1} ~/${1}"
+  ln -sf ~/dotfiles/${1} ~/${1}
+}
 
-echoCol 36 "Setting synbolic links..."
+
+echo
+echoCol 32 "=====  Vim  ====="
+echoCol 36 'Installing dotfiles...'
+lnDotfile .vimrc
+
+echoCol 36 "creating directories..."
 mkdir ~/.vim
 mkdir ~/.vim/bundle
 
 links=(conf.d colors indent after)
 for link in ${links[@]}; do
-  ln -sf ~/dotfiles/.vim/${link} ~/.vim/${link}
+  lnDotfile ${link}
 done
 
+echo
 echoCol 36 "Cloning NeoBundle..."
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 echoCol 33 "If you don't want to enable plugins, remove '~/dotfiles/.vim/conf.d/plugins.vim'."
 echoCol 33 "Some plugins require vim >= 7.4. If you use old version, please update."
 echoCol 33 "After install NeoBundle, launch vim and type ':NeoBundleInstall'."
+
+echo
+echoCol 32 "=====  Zsh  ====="
+echoCol 36 'Installing dotfiles...'
+lnDotfile .zshrc
+lnDotfile .zshenv
+
+echoCol 36 "Creating directories..."
+ln -sf ~/dotfiles/.zsh.d ~/.zsh.d
+
+
+echo
+echoCol 32 "=====  tmux  ====="
+echoCol 36 'Installing dotfiles...'
+lnDotfile .tmux.conf
 
 echoCol 36 "Cloning tmux plugins..."
 mkdir ~/.tmux
@@ -36,4 +57,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echoCol 36 "Cloning dotfiles..."
 git clone https://github.com/1000k/dotfiles
 
+
+echo
 echoCol 32 "Done."
