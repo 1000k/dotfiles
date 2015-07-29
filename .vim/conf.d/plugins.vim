@@ -284,6 +284,21 @@ NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascr
 NeoBundleLazy 'bpearson/vim-phpcs', {'autoload': {'filetypes': ['php']}}
 
 
+" vim-clojure-static
+NeoBundleLazy 'guns/vim-clojure-static', {'autoload': {'filetypes': ['clojure']}}
+
+" Better Rainbow Parentheses
+NeoBundleLazy 'kien/rainbow_parentheses.vim', {'autoload': {'filetypes': ['clojure']}}
+if neobundle#is_installed('rainbow_parentheses.vim')
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
+endif
+
+" REPL in fireplace
+NeoBundleLazy 'tpope/vim-fireplace', {'autoload': {'filetypes': ['clojure']}}
+
 call neobundle#end()
 
 " Required:
