@@ -299,6 +299,10 @@ endif
 " REPL in fireplace
 NeoBundleLazy 'tpope/vim-fireplace', {'autoload': {'filetypes': ['clojure']}}
 
+" Automatically sets the 'path' for JVM languages to match the class path of your current Java project
+NeoBundleLazy 'tpope/vim-classpath', {'autoload': {'filetypes': ['clojure']}}
+
+
 call neobundle#end()
 
 " Required:
