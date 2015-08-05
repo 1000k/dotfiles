@@ -23,7 +23,7 @@ echoCol 36 "creating directories..."
 mkdir ~/.vim
 mkdir ~/.vim/bundle
 
-links=(after colors conf.d indent)
+links=(after colors conf.d ftplugin indent)
 for link in ${links[@]}; do
   ln -sf ~/dotfiles/.vim/${link} ~/.vim/${link}
 done
