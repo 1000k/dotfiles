@@ -286,6 +286,7 @@ NeoBundleLazy 'bpearson/vim-phpcs', {'autoload': {'filetypes': ['php']}}
 
 " vim-clojure-static
 NeoBundleLazy 'guns/vim-clojure-static', {'autoload': {'filetypes': ['clojure']}}
+let g:clojure_align_multiline_strings = 1
 
 " Better Rainbow Parentheses
 NeoBundleLazy 'kien/rainbow_parentheses.vim', {'autoload': {'filetypes': ['clojure']}}
@@ -296,12 +297,25 @@ if neobundle#is_installed('rainbow_parentheses.vim')
   au Syntax * RainbowParenthesesLoadBraces
 endif
 
-" REPL in fireplace
+" Clojure REPL support
 NeoBundleLazy 'tpope/vim-fireplace', {'autoload': {'filetypes': ['clojure']}}
+" Require and Run test just in a command
+function! s:myRunTests() abort
+  let ns = fireplace#ns()
+  if match(ns, 'test$') ==# -1
+    let test_ns = ns . '-test'
+  else
+    let test_ns = ns
+    let ns = substitute(ns, '-test', '', '')
+  endif
+  execute ':Require ' . ns
+  execute ':RunTests ' . test_ns
+endfunction
+command! MyRunTests call s:myRunTests()
+nnoremap <Leader>t :<C-u>MyRunTests<CR>
+nnoremap <Leader>s :<C-u>Require<CR>
 
-" Automatically sets the 'path' for JVM languages to match the class path of your current Java project
 NeoBundleLazy 'tpope/vim-classpath', {'autoload': {'filetypes': ['clojure']}}
-
 
 call neobundle#end()
 
@@ -317,7 +331,8 @@ NeoBundleCheck
 " Color scheme
 " ----------------
 set t_Co=256
-let g:molokai_original=0
-let g:rehash256=1
-colorscheme molokai
+colorscheme hybrid
+" let g:molokai_original=0
+" let g:rehash256=1
+" colorscheme molokai
 
