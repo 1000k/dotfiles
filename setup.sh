@@ -44,6 +44,10 @@ lnDotfile .zshenv
 echoCol 36 "Creating directories..."
 ln -sf ~/dotfiles/.zsh.d ~/.zsh.d
 
+echoCol 36 "Installing Antigen..."
+curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/dotfiles/.zsh.d/antigen.zsh
+source ~/dotfiles/.zsh.d/antigen.zsh
+
 
 echo
 echoCol 32 "=====  tmux  ====="
