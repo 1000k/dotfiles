@@ -1,3 +1,5 @@
+setlocal iskeyword-=/
+
 aug MyLispWords
   au!
   au FileType clojure set lispwords+=ns,are

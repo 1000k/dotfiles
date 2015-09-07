@@ -32,7 +32,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 let g:unite_enable_start_insert = 1 " launch in insert mode
 nnoremap [unite] <Nop>
-nmap U [unite]
+nmap <Leader>u [unite]
 nnoremap <silent> [unite]b :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]B :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]f :<C-u>Unite file_rec<CR>
@@ -40,6 +40,7 @@ nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]r :<C-u>Unite register<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]y :<C-u>Unite yankround<CR>
+nnoremap <silent> [unite]e :<C-u>Unite everything<CR>
 " exit Unite immediately from Unite with <ESC>*2
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
@@ -60,6 +61,13 @@ NeoBundle 'Shougo/vimfiler'
 let g:vimfiler_as_default_explorer = 1 " use VimFiler instead of netrw
 let g:vimfiler_safe_mode_by_default = 0 " start with safe mode = off
 nmap <F10> :VimFiler<CR>
+"
+" Search from Everything
+if has('win32') || has ('win64')
+  NeoBundle 'sgur/unite-everything'
+  let g:unite_source_everything_limit = 100 " A number of output from everything
+  "let g:unite_source_everything_posix_regexp_search = 0 " Setting 1 makes everything search with basic POSIX regular expression.
+endif
 
 " Enhance unite.vim to access to recent opened files (`:Unite file_mru`)
 NeoBundle 'Shougo/neomru.vim'
