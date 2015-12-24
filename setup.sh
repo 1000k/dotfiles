@@ -48,6 +48,7 @@ echoCol 36 "Installing Antigen..."
 curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/dotfiles/.zsh.d/antigen.zsh
 source ~/dotfiles/.zsh.d/antigen.zsh
 
+echoCol 33 "Installing Zsh is completed. Please type 'chsh -s /bin/zsh' and restart terminal."
 
 echo
 echoCol 32 "=====  tmux  ====="
