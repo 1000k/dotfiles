@@ -14,12 +14,12 @@ setopt nolistbeep
 # remove rprompt after begining type for ease of copy & paste
 setopt transient_rprompt
 
-## Completion configuration
-autoload predict-on
-predict-on
+## Completion configuration (too annoying...)
+#autoload predict-on
+#predict-on
 
-#autoload -U compinit
-#compinit
+autoload -U compinit
+compinit
 
 # Try to make the completion list smaller 
 setopt list_packed
