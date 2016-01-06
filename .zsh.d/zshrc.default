@@ -18,8 +18,8 @@ setopt transient_rprompt
 autoload predict-on
 predict-on
 
-autoload -U compinit
-compinit
+#autoload -U compinit
+#compinit
 
 # Try to make the completion list smaller 
 setopt list_packed
