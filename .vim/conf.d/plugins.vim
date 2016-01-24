@@ -218,7 +218,8 @@ NeoBundle 'townk/vim-autoclose'
 " JSON formatter (type `gqij` or `gqaj` to pretty format)
 NeoBundle 'tpope/vim-jdaddy.git'
 
-" create Ctags file automatically
+" Create Ctags file automatically
+" (It requires Ctags.exe in your $PATH and vimproc.dll)
 NeoBundleLazy 'alpaca-tc/alpaca_tags', {
 \  'depends': ['Shougo/vimproc.vim'],
 \  'autoload' : {
@@ -292,7 +293,6 @@ NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascr
 " PHP CodeSniffer (run with `:CodeSniff`)
 NeoBundleLazy 'bpearson/vim-phpcs', {'autoload': {'filetypes': ['php']}}
 
-
 " vim-clojure-static
 NeoBundleLazy 'guns/vim-clojure-static', {'autoload': {'filetypes': ['clojure']}}
 let g:clojure_align_multiline_strings = 1
@@ -325,6 +325,10 @@ nnoremap <Leader>t :<C-u>MyRunTests<CR>
 nnoremap <Leader>s :<C-u>Require<CR>
 
 NeoBundleLazy 'tpope/vim-classpath', {'autoload': {'filetypes': ['clojure']}}
+
+" Rails support plugins
+NeoBundleLazy 'tpope/vim-rails', {'autoload':{'filetypes':['rb', 'erb']}}
+NeoBundleLazy 'tpope/vim-bundler', {'autoload':{'filetypes':['rb', 'erb']}}
 
 call neobundle#end()
 
