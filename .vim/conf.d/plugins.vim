@@ -330,6 +330,10 @@ NeoBundleLazy 'tpope/vim-classpath', {'autoload': {'filetypes': ['clojure']}}
 NeoBundleLazy 'tpope/vim-rails', {'autoload':{'filetypes':['rb', 'erb']}}
 NeoBundleLazy 'tpope/vim-bundler', {'autoload':{'filetypes':['rb', 'erb']}}
 
+" Syntax check
+NeoBundle 'scrooloose/syntastic'
+let g:syntastic_ruby_checkers = ['rubocop']
+
 call neobundle#end()
 
 " Required:
