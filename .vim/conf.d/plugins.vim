@@ -63,6 +63,7 @@ let g:vimfiler_safe_mode_by_default = 0 " start with safe mode = off
 nmap <F10> :VimFiler<CR>
 "
 " Search from Everything
+" https://github.com/sgur/unite-everything
 if has('win32') || has ('win64')
   NeoBundle 'sgur/unite-everything'
   let g:unite_source_everything_limit = 100 " A number of output from everything
