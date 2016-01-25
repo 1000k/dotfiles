@@ -67,6 +67,7 @@ nmap <F10> :VimFiler<CR>
 if has('win32') || has ('win64')
   NeoBundle 'sgur/unite-everything'
   let g:unite_source_everything_limit = 100 " A number of output from everything
+  let g:unite_source_everything_full_path_search = 1 " Setting 1 makes everything do a full path search.
   "let g:unite_source_everything_posix_regexp_search = 0 " Setting 1 makes everything search with basic POSIX regular expression.
 endif
 
