@@ -5,17 +5,14 @@
 " see: https://github.com/Shougo/neobundle.vim
 " ----------------
 " Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
 
-if !1 | finish | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+  set nocompatible               " Be iMproved
 endif
+
+" Required:
+set runtimepath^=~/.vim/bundle/neobundle.vim/
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -23,6 +20,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
+
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -300,10 +298,10 @@ let g:clojure_align_multiline_strings = 1
 " Better Rainbow Parentheses
 NeoBundleLazy 'kien/rainbow_parentheses.vim', {'autoload': {'filetypes': ['clojure']}}
 if neobundle#is_installed('rainbow_parentheses.vim')
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
+  au BufEnter *.clj RainbowParenthesesActivate
+  au Syntax clojure RainbowParenthesesLoadRound
+  au Syntax clojure RainbowParenthesesLoadSquare
+  au Syntax clojure RainbowParenthesesLoadBraces
 endif
 
 " Clojure REPL support
@@ -333,6 +331,7 @@ NeoBundleLazy 'tpope/vim-bundler', {'autoload':{'filetypes':['rb', 'erb']}}
 " Syntax check
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_ruby_checkers = ['rubocop']
+
 
 call neobundle#end()
 
