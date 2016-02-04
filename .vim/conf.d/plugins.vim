@@ -33,7 +33,7 @@ nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
 nnoremap <silent> [unite]b :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]B :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]f :<C-u>Unite file_rec<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file_rec:!<CR>
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]r :<C-u>Unite register<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
