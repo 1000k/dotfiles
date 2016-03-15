@@ -33,6 +33,7 @@ set cindent
 set nowritebackup
 set nobackup
 set noswapfile
+set noundofile
 
 "" set paste mode
 "" *This option intercepts any other commands (like <S-Insert> as paste)*
