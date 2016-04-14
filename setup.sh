@@ -18,6 +18,7 @@ echo
 echoCol 32 "=====  Vim  ====="
 echoCol 36 'Installing dotfiles...'
 lnDotfile .vimrc
+lnDotfile .gvimrc
 
 echoCol 36 "creating directories..."
 mkdir ~/.vim
