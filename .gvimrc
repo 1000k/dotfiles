@@ -1,6 +1,7 @@
 " **NOTE**
 " If using VIM Kaoriya version, remove 'vimrc' and 'gvimrc' at first
 
+set transparency = 10
 
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
@@ -33,7 +34,7 @@ set guioptions-=e
 
 " Enable clipboard sync on Windows
 set clipboard=unnamed
-if has("win32")
+if has('win32')
   vnoremap <C-c> "*y
 endif
 
@@ -60,6 +61,15 @@ if has('gui_running') && argc()
     qa!
   endif
   unlet s:running_vim_list
+endif
+
+" ----------------
+" Color scheme
+" ----------------
+set background=dark
+colorscheme hybrid
+if has('gui_mac')
+  let g:hybrid_custom_term_colors = 1
 endif
 
 
