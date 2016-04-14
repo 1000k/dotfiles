@@ -77,7 +77,7 @@ if has('syntax')
 endif
 
 " Recover last cursor position
-if has("autocmd")
+if has('autocmd')
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line ("'\"") <= line("$") |
     \   exe "normal! g'\"" |
@@ -261,10 +261,9 @@ command! LcdCurrentFile lcd %:h
 " ----------------
 " Load conf.d
 " ----------------
-set runtimepath+=$HOME/.vim/
-runtime! conf.d/*.vim
-
-if has("gui")
+if has('gui')
   runtime! $MYGVIMRC
 end
 
+set runtimepath+=$HOME/.vim/
+runtime! conf.d/*.vim
