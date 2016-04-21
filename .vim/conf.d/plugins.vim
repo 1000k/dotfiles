@@ -178,8 +178,8 @@ nmap P <Plug>(yankround-P)
 nmap gp <Plug>(yankround-gp)
 xmap gp <Plug>(yankround-gp)
 nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
+" nmap <C-p> <Plug>(yankround-prev)
+" nmap <C-n> <Plug>(yankround-next)
 
 " ----------------
 "  Lightline
@@ -396,6 +396,9 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 
 " ag (requires ag binary in $PATH)
 NeoBundle 'rking/ag.vim'
+
+" File search
+NeoBundle "ctrlpvim/ctrlp.vim"
 
 
 call neobundle#end()
