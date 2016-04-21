@@ -35,7 +35,7 @@ setopt share_history        # share command history data
 ## Customize prompt
 autoload colors
 colors
-PROMPT="%{${fg[green]}%}[%n@%m]$ %{${reset_color}%}"
+PROMPT="%(?.%F{green}[%n]%f.%F{red}[%n]%f)%# "
 RPROMPT="[%/]"
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
