@@ -261,6 +261,12 @@ command! LcdCurrentFile lcd %:h
 " ----------------
 " Load conf.d
 " ----------------
+if has('mac')
+  set clipboard=unnamed
+  " auto-pairs プラグインインストール後に日本語入力ができなくなる不具合を解消
+  set imdisable
+endif
+
 if has('gui')
   runtime! $MYGVIMRC
 end
