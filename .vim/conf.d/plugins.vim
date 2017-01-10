@@ -400,6 +400,9 @@ NeoBundle 'rking/ag.vim'
 " File search
 NeoBundle "ctrlpvim/ctrlp.vim"
 
+" Terraform support
+NeoBundle "hashivim/vim-terraform.git"
+
 
 call neobundle#end()
 
