@@ -1,9 +1,21 @@
 # Load default settings
 source ~/.zsh.d/zshrc.default
 
+# Load configs in ~/.zsh.d/
+for conf in $HOME/.zsh.d/*.zsh; do
+  source ${conf};
+done
+
+# zsh-completions
+if [ -e /usr/local/share/zsh-completions ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
+  fi
+
 # rbenv
 export PATH="$HOME/.rbenv/shims:/usr/local/bin:$PATH"
 eval "$(rbenv init -)"
+
+eval "$(direnv hook zsh)"
 
 case "$(uname)" in
   Darwin) # OSがMacならば
