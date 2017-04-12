@@ -15,6 +15,7 @@ Setup
 
 ```
 curl -L http://bit.ly/1000k_dotfiles | bash
+cd dotfiles
 sudo chef-apply chef_apply.rb
 ```
 
