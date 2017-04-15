@@ -264,6 +264,9 @@ command! LcdCurrentFile lcd %:h
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'ujihisa/unite-colorscheme'
+Plug 'Shougo/vimfiler'
 call plug#end()
 
 " プラグインがインストールされているかどうか
@@ -308,6 +311,240 @@ augroup check-plug
   autocmd!
   autocmd VimEnter * if !argc() | call s:plug.check_installation() | endif
 augroup END
+
+" ----------------
+"  caw.vim
+"  support better comment out
+" ----------------
+Plug 'tyru/caw.vim'
+nmap <Leader>c <plug>(caw:i:toggle)
+vmap <Leader>c <plug>(caw:i:toggle)
+
+" ----------------
+"  yankround
+"  advanced YankRing
+" ----------------
+Plug 'LeafCage/yankround.vim'
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+" nmap <C-p> <Plug>(yankround-prev)
+" nmap <C-n> <Plug>(yankround-next)
+
+" ----------------
+"  Lightline
+"  improve statusline
+" ----------------
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+\  'active': {
+\    'right': [ [ 'qfstatusline', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
+\  },
+\  'component_expand': {
+\    'qfstatusline': 'qfstatusline#Update',
+\  },
+\  'component_type': {
+\    'qfstatusline': 'error',
+\  },
+\}
+let g:Qfstatusline#UpdateCmd = function('lightline#update') " update lightline after :WatchdogsRun
+
+" ----------------
+"  vim-multiple-cursors
+"  multi line manupilation like Sublime text (`Ctrl+n` to launch)
+" ----------------
+Plug 'terryma/vim-multiple-cursors'
+" prevent conflict with Neocomplete
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
+" ----------------
+" vim-expand-region
+" visually select incresingly larger regions of text
+" ----------------
+Plug 'terryma/vim-expand-region'
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" ----------------
+" plugin configurations
+" ----------------
+if s:plug.is_installed("vimfiler")
+  let g:vimfiler_as_default_explorer = 1 " use VimFiler instead of netrw
+  let g:vimfiler_safe_mode_by_default = 0 " start with safe mode = off
+  nmap <F10> :VimFiler<CR>
+endif
+
+" ----------------
+"  vim-rooter
+"  find current projects' root directory and lcd
+" ----------------
+Plug 'airblade/vim-rooter'
+if s:plug.is_installed("vim-rooter")
+  " Change only current window's directory
+  let g:rooter_use_lcd = 1
+  " files/directories for the root directory
+  let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
+  " don't echo the project directory
+  let g:rooter_silent_chdir = 1
+  " Automatically change the directory
+  "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
+endif
+if has("path_extra")
+  set tags+=tags; " find tags file recursively forwardparent directories
+endif
+
+" ----------------
+"  Unite-Everything
+"  Search from Everything
+"  https://github.com/sgur/unite-everything
+" ----------------
+if has('win32') || has ('win64')
+  Plug 'sgur/unite-everything'
+  let g:unite_source_everything_limit = 100 " A number of output from everything
+  let g:unite_source_everything_full_path_search = 1 " Setting 1 makes everything do a full path search.
+  "let g:unite_source_everything_posix_regexp_search = 0 " Setting 1 makes everything search with basic POSIX regular expression.
+endif
+
+" ----------------
+"  enhanced incsearch
+" ----------------
+Plug 'haya14busa/incsearch.vim'
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+
+" ----------------
+"  Clojure support plugins
+" ----------------
+" Clojure REPL support
+Plug 'tpope/vim-fireplace', {'for':'clojure'}
+" Require and Run test just in a command
+function! s:myRunTests() abort
+  let ns = fireplace#ns()
+  if match(ns, 'test$') ==# -1
+    let test_ns = ns . '-test'
+  else
+    let test_ns = ns
+    let ns = substitute(ns, '-test', '', '')
+  endif
+  execute ':Require ' . ns
+  execute ':RunTests ' . test_ns
+endfunction
+command! MyRunTests call s:myRunTests()
+nnoremap <Leader>t :<C-u>MyRunTests<CR>
+nnoremap <Leader>s :<C-u>Require<CR>
+
+Plug 'tpope/vim-classpath', {'for':'clojure'}
+
+" Better Rainbow Parentheses
+Plug 'kien/rainbow_parentheses.vim', {'for':'clojure'}
+if s:plug.is_installed('rainbow_parentheses.vim')
+  au BufEnter *.clj RainbowParenthesesActivate
+  au Syntax clojure RainbowParenthesesLoadRound
+  au Syntax clojure RainbowParenthesesLoadSquare
+  au Syntax clojure RainbowParenthesesLoadBraces
+endif
+
+" vim-clojure-static
+Plug 'guns/vim-clojure-static', {'for':'clojure'}
+let g:clojure_align_multiline_strings = 1
+
+
+
+" ----------------
+" Rails support plugins
+" ----------------
+Plug 'tpope/vim-rails', {'for':['rb', 'erb']}
+Plug 'tpope/vim-bundler', {'for':['rb', 'erb']}
+
+" ----------------
+"  miscellaneous
+" ----------------
+" Syntax check
+Plug 'scrooloose/syntastic'
+let g:syntastic_ruby_checkers = ['rubocop']
+
+" pairs of handy bracket mappings
+Plug 'tpope/vim-unimpaired'
+
+" Indent guide
+Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup=1
+
+" the plugin provied mappings to easily modify such surroundings in pairs
+Plug 'tpope/vim-surround'
+
+" text formater
+Plug 'vim-scripts/Align'
+
+" Enhanced Javascript support
+Plug 'jelera/vim-javascript-syntax', {'for':'javascript'}
+
+" PHP CodeSniffer (run with `:CodeSniff`)
+Plug 'bpearson/vim-phpcs', {'for': 'php'}
+
+" class outline viewer
+Plug 'majutsushi/tagbar'
+nmap <F8> :TagbarToggle<CR>
+
+" Emmet for vim
+Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'scss', 'sass']}
+
+" define custom mode
+Plug 'kana/vim-submode'
+
+" helps to end certain structures automatically for Ruby, Bash, VC, C/C++, Lua
+Plug 'tpope/vim-endwise'
+
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+
+" add close chars automatically
+Plug 'townk/vim-autoclose'
+
+" JSON formatter (type `gqij` or `gqaj` to pretty format)
+Plug 'tpope/vim-jdaddy'
+
+" Generate Ctags automatically
+Plug 'szw/vim-tags'
+
+" show quickfix contents in status line
+Plug 'KazuakiM/vim-qfstatusline'
+
+" highlight trailing whitespaces
+Plug 'ntpeters/vim-better-whitespace'
+
+" ag (requires ag binary in $PATH)
+Plug 'rking/ag.vim'
+
+" File search
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Terraform support
+Plug 'hashivim/vim-terraform'
+
+" ===================================
+
 
 " ----------------
 " Load conf.d
