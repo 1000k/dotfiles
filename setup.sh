@@ -17,8 +17,8 @@ lnDotfile() {
 echo
 echoCol 32 "=====  Vim  ====="
 echoCol 36 'Installing dotfiles...'
-lnDotfile .vimrc
-lnDotfile .gvimrc
+ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
 
 echoCol 36 "creating directories..."
 mkdir ~/.vim

@@ -2,11 +2,11 @@
 
 cache_dir = Chef::Config['file_cache_path']
 
-%w{zsh ctags}.each {|pkg| package pkg}
-Chef::Log.info 'After install zsh, enter `chsh -s /bin/zsh` and restart terminal.'
-
 case node['platform']
 when 'ubuntu'
+  %w{zsh ctags}.each {|pkg| package pkg}
+  Chef::Log.info 'After install zsh, enter `chsh -s /bin/zsh` and restart terminal.'
+
   # install Vim 8
   apt_repository 'add-vim-repo' do
     uri 'ppa:jonathonf/vim'
