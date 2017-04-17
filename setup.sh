@@ -23,7 +23,7 @@ lnDotfile .gvimrc
 echoCol 36 "creating directories..."
 mkdir ~/.vim
 
-links=(after colors conf.d ftplugin indent)
+links=(after autoload colors customload ftplugin indent)
 for link in ${links[@]}; do
   ln -sf ~/dotfiles/.vim/${link} ~/.vim/${link}
 done
