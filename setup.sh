@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # arg1: color code (30-37)
 # arg2: strings
@@ -22,9 +22,8 @@ ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
 
 echoCol 36 "creating directories..."
 mkdir ~/.vim
-mkdir ~/.vim/bundle
 
-links=(after colors conf.d ftplugin indent)
+links=(after autoload colors customload ftplugin indent)
 for link in ${links[@]}; do
   ln -sf ~/dotfiles/.vim/${link} ~/.vim/${link}
 done
