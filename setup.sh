@@ -54,6 +54,7 @@ mkdir ~/.tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echoCol 36 "Cloning dotfiles..."
+cd ~
 git clone https://github.com/1000k/dotfiles
 
 
