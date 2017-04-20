@@ -48,4 +48,11 @@ when 'ubuntu'
     command 'curl -L https://get.oh-my.fish | fish'
     action :nothing
   end
+
+  # Direnv
+  remote_file '/usr/local/bin/direnv' do
+    source 'https://github.com/direnv/direnv/releases/download/v2.11.3/direnv.linux-amd64'
+    not_if 'which direnv'
+    mode 0755
+  end
 end
