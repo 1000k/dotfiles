@@ -20,6 +20,13 @@ when 'ubuntu'
     distribution codename
   end
 
-  package 'fish'
+  package 'fish' do
+    notifies :run, 'execute[install-fish]'
+  end
   Chef::Log.info 'After install fish, enter `chsh -s /usr/bin/fish` and restart terminal.'
+
+  execute 'install-fish' do
+    command 'curl -L https://get.oh-my.fish | fish'
+    action :nothing
+  end
 end
