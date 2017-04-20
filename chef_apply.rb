@@ -4,16 +4,29 @@ cache_dir = Chef::Config['file_cache_path']
 
 case node['platform']
 when 'ubuntu'
-  %w{zsh ctags}.each {|pkg| package pkg}
-  Chef::Log.info 'After install zsh, enter `chsh -s /bin/zsh` and restart terminal.'
+  codename = node['lsb']['codename']
 
-  # install Vim 8
-  apt_repository 'add-vim-repo' do
+  apt_repository 'vim' do
     uri 'ppa:jonathonf/vim'
-    distribution node['lsb']['codename']
+    distribution codename
   end
 
   package 'vim' do
     action :upgrade
+  end
+
+  apt_repository 'fish' do
+    uri 'ppa:fish-shell/release-2'
+    distribution codename
+  end
+
+  package 'fish' do
+    notifies :run, 'execute[install-fish]'
+  end
+  Chef::Log.info 'After install fish, enter `chsh -s /usr/bin/fish` and restart terminal.'
+
+  execute 'install-fish' do
+    command 'curl -L https://get.oh-my.fish | fish'
+    action :nothing
   end
 end
