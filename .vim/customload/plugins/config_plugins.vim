@@ -32,8 +32,8 @@ au Syntax clojure RainbowParenthesesLoadBraces
 " ----------------
 "  caw.vim
 " ----------------
-nmap <Leader>c <plug>(caw:i:toggle)
-vmap <Leader>c <plug>(caw:i:toggle)
+nmap <Leader>c <Plug>(caw:hatpos:toggle)
+vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 " ----------------
 "  yankround
