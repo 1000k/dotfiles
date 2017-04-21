@@ -55,4 +55,20 @@ when 'ubuntu'
     not_if 'which direnv'
     mode 0755
   end
+
+  # ghq
+  src_path = "#{cache_dir}/ghq.zip"
+  remote_file src_path do
+    source 'https://github.com/motemen/ghq/releases/download/v0.7.4/ghq_linux_amd64.zip'
+    not_if 'which ghq'
+  end
+
+  execute 'extract_ghq'do
+    cwd ::File.dirname(src_path)
+    command <<-EOH
+      unzip -j #{src_path} ghq -d /usr/local/bin/
+      chmod +x /usr/local/bin/ghq
+    EOH
+    not_if 'which ghq'
+  end
 end
