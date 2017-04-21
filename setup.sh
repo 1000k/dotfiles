@@ -38,12 +38,16 @@ echoCol 36 "Cloning tmux plugins..."
 mkdir ~/.tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+echoCol 32 "=====  misc  ====="
 echoCol 36 "Cloning dotfiles..."
 cd ~
 git clone https://github.com/1000k/dotfiles
 
 echoCol 36 "Installing chef-apply..."
 curl -L https://www.chef.io/chef/install.sh | sudo bash
+
+echoCol 36 "Creating symlink..."
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 
 echo
 echoCol 32 "Done."

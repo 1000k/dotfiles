@@ -1,0 +1,12 @@
+[user]
+	email = senda.keijiro@gmail.com
+	name = SENDA Keijiro
+[push]
+	default = simple
+[ghq]
+  root = ~/src
+[alias]
+	ci = commit
+  st = status
+  co = checkout
+  br = branch
