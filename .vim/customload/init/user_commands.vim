@@ -89,3 +89,8 @@ command! TabbedTextToTrac :call TabbedTextToTrac()
 command! TabbedTextToRedmine :call TabbedTextToRedmine()
 command! TabbedTextToConfluence :call TabbedTextToConfluence()
 command! TabbedTextToMarkdown :call TabbedTextToMarkdown()
+
+" -----------------
+" Delete ANSI color codes
+" -----------------
+command! DeleteAnsi %s/\[[0-9;]*m//g
