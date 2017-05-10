@@ -60,9 +60,6 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" select all
-map <C-a> <Esc>ggVG
-
 " cursor keys moves rows as display)
 nnoremap j gj
 nnoremap k gk
