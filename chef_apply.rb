@@ -65,7 +65,7 @@ when 'ubuntu'
     not_if 'which ghq'
   end
 when 'mac_os_x'
-  %w{fish peco ghq}.each { |pkg| homebrew_package pkg }
+  %w{fish peco ghq direnv ansible}.each { |pkg| homebrew_package pkg }
   homebrew_package 'vim' do
     options '--with-override-system-vi'
   end
