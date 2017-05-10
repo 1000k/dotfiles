@@ -64,4 +64,10 @@ when 'ubuntu'
     EOH
     not_if 'which ghq'
   end
+when 'mac_os_x'
+  %w{fish peco ghq}.each { |pkg| homebrew_package pkg }
+  homebrew_package 'vim' do
+    options '--with-override-system-vi'
+  end
+
 end
