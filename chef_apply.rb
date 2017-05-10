@@ -39,15 +39,8 @@ when 'ubuntu'
     distribution codename
   end
 
-  package 'fish' do
-    notifies :run, 'execute[install_fish]'
-  end
+  package 'fish'
   Chef::Log.info 'After install fish, enter `chsh -s /usr/bin/fish` and restart terminal.'
-
-  execute 'install_fish' do
-    command 'curl -L https://get.oh-my.fish | fish'
-    action :nothing
-  end
 
   # Direnv
   remote_file '/usr/local/bin/direnv' do
