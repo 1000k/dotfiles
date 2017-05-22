@@ -40,6 +40,9 @@ echoCol 36 "Creating symlink..."
 ln -sf ~/dotfiles/config.fish ~/.config/fish/config.fish
 ln -sf ~/dotfiles/fishfile ~/.config/fish/fishfile
 
+echoCol 36 "Installing fisherman..."
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+
 echoCol 33 "Fish is not installed yet. Run chef-apply."
 
 
