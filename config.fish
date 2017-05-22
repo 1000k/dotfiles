@@ -7,3 +7,14 @@ set fish_plugins theme peco
 function fish_user_key_bindings
   bind \cr peco_select_history
 end
+
+
+function peco_select_repository
+  if set -q $argv
+    ghq list -p | peco | read line; builtin cd $line
+  else
+    ghq list -p | peco --query $argv | read line; builtin cd $line
+  end
+  set -e line
+end
+bind \c] peco_select_repository
