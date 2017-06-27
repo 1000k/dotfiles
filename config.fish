@@ -1,4 +1,12 @@
+# Enable direnv
 eval (direnv hook fish)
+
+# Enable rbenv
+set -x PATH $HOME/.rbenv/bin $PATH
+rbenv init - | source
+
+# vi mode
+fish_vi_key_bindings
 
 set TERM screen-256color
 set fish_plugins theme peco
@@ -7,7 +15,6 @@ set fish_plugins theme peco
 function fish_user_key_bindings
   bind \cr peco_select_history
 end
-
 
 function peco_select_repository
   if set -q $argv
