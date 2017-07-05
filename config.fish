@@ -5,9 +5,6 @@ eval (direnv hook fish)
 set -x PATH $HOME/.rbenv/bin $PATH
 rbenv init - | source
 
-# vi mode
-fish_vi_key_bindings
-
 set TERM screen-256color
 set fish_plugins theme peco
 
