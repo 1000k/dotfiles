@@ -4,10 +4,6 @@
   connection: local
   gather_facts: false
   tasks:
-  - name: Add Vim 8 repository
-    apt_repository:
-      repo: ppa:jonathonf/vim
-      codename: xenial
 
   - name: Install Vim 8
     apt: name=vim state=latest
@@ -38,4 +34,24 @@
       src: https://github.com/motemen/ghq/releases/download/v0.8.0/ghq_linux_amd64.zip
       remote_src: yes
       dest: /usr/local/bin
+
+  - name: Install packages for Docker CE
+    apt: name={{ item }}
+    with_items: [apt-transport-https, ca-certificates, curl, software-properties-common]
+
+  - name: Add apt-key for Docker CE
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      id: 0EBFCD88
+
+  - name: Add Docker CE repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+
+  - name: Install Docker CE
+    apt: name=docker-ce
+  - name: Add Vim 8 repository
+    apt_repository:
+      repo: ppa:jonathonf/vim
+      codename: xenial
 

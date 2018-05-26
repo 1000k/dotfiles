@@ -19,31 +19,24 @@ lnDotfile() {
 #cd ~
 #git clone https://github.com/1000k/dotfiles
 #
-#echoCol 36 "Creating symlink..."
-#ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+#lnDotFile .gitconfig
 
 
 echoCol 32 "=====  Ansible  ====="
 echoCol 36 "Installing Ansible..."
 sudo apt-get install -y software-properties-common
 sudo apt-add-repository -y ppa:ansible/ansible
-sudo apt-get update 
+sudo apt-get update
 sudo apt-get install -y ansible
 
 
 echo
 echoCol 32 "=====  Vim  ====="
-echoCol 36 "Creating directories..."
-mkdir ~/.vim
-
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
-
 echoCol 36 "Creating symlink..."
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
-links=(after autoload colors customload ftplugin indent)
+links=(.vimrc .gvimrc .gitconfig .vim)
 for link in ${links[@]}; do
-  ln -sf ~/dotfiles/.vim/${link} ~/.vim/${link}
+  lnDotFile ${link}
+  #ln -sf ~/dotfiles/.vim/${link} ~/.vim/${link}
 done
 
 
@@ -75,3 +68,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo
 echoCol 32 "Done."
+echoCol 32 "If all commands are succeeded, type 'ansible-playbook playbook.yml' to finish installing packages."
