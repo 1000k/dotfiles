@@ -1,0 +1,21 @@
+---
+
+- hosts: localhost
+  #remote_user: root
+  connection: local
+  tasks:
+  - name: Install vim-gnome
+    apt: name=vim-gnome
+
+  # Direnv
+  - shell: which direnv
+    register: direnv_installed
+    changed_when: false
+    ignore_errors: true
+
+  - name: Install Direnv
+    get_url:
+      url: https://github.com/direnv/direnv/releases/download/v2.11.3/direnv.linux-amd64
+      dest: /usr/local/bin/direnv
+      mode: 0755
+    when: direnv_installed.rc != 0

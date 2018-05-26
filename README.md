@@ -4,8 +4,6 @@
 Required
 --------
 - git
-- chef-apply
-  - `curl -L https://www.chef.io/chef/install.sh | sudo bash`
 
 
 Setup
@@ -16,8 +14,6 @@ Setup
 ```
 cd ~
 curl -L http://bit.ly/1000k_dotfiles | bash
-cd dotfiles
-sudo chef-apply chef_apply.rb
 ```
 
 ### Windows
