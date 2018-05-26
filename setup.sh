@@ -13,15 +13,31 @@ lnDotfile() {
   ln -sf ~/dotfiles/${1} ~/${1}
 }
 
+#echo
+#echoCol 32 "=====  dotfiles  ====="
+#echoCol 36 "Cloning dotfiles..."
+#cd ~
+#git clone https://github.com/1000k/dotfiles
+#
+#echoCol 36 "Creating symlink..."
+#ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+
+
+echoCol 32 "=====  Ansible  ====="
+echoCol 36 "Installing Ansible..."
+sudo apt-get install -y software-properties-common
+sudo apt-add-repository -y ppa:ansible/ansible
+sudo apt-get update 
+sudo apt-get install -y ansible
+
 
 echo
 echoCol 32 "=====  Vim  ====="
-echoCol 36 'Installing dotfiles...'
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
-
 echoCol 36 "Creating directories..."
 mkdir ~/.vim
+
+ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
 
 echoCol 36 "Creating symlink..."
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
@@ -56,17 +72,6 @@ mkdir ~/.tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 
-echo
-echoCol 32 "=====  misc  ====="
-echoCol 36 "Cloning dotfiles..."
-cd ~
-git clone https://github.com/1000k/dotfiles
-
-echoCol 36 "Installing chef-apply..."
-curl -L https://www.chef.io/chef/install.sh | sudo bash
-
-echoCol 36 "Creating symlink..."
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 
 echo
 echoCol 32 "Done."
