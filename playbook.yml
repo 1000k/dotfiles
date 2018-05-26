@@ -1,13 +1,17 @@
 ---
 
 - hosts: localhost
-  #remote_user: root
   connection: local
+  gather_facts: false
   tasks:
-  - name: Install vim-gnome
-    apt: name=vim-gnome
+  - name: Add Vim 8 repository
+    apt_repository:
+      repo: ppa:jonathonf/vim
+      codename: xenial
 
-  # Direnv
+  - name: Install Vim 8
+    apt: name=vim state=latest
+
   - shell: which direnv
     register: direnv_installed
     changed_when: false
@@ -19,3 +23,19 @@
       dest: /usr/local/bin/direnv
       mode: 0755
     when: direnv_installed.rc != 0
+
+  - name: Install peco
+    unarchive:
+      src: https://github.com/peco/peco/releases/download/v0.5.3/peco_linux_amd64.tar.gz
+      remote_src: yes
+      dest: /usr/local/bin
+      extra_opts:
+        - --strip=1
+        - peco_linux_amd64/peco
+
+  - name: Install GQH
+    unarchive:
+      src: https://github.com/motemen/ghq/releases/download/v0.8.0/ghq_linux_amd64.zip
+      remote_src: yes
+      dest: /usr/local/bin
+
